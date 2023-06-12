@@ -21,10 +21,18 @@ class RegionalityDefinitionView: UIView {
         return label
     }()
     
+    private let scrollView: UIScrollView = {
+        let scroll = UIScrollView()
+        scroll.showsVerticalScrollIndicator = true
+        scroll.indicatorStyle = .white
+        scroll.translatesAutoresizingMaskIntoConstraints = false
+        return scroll
+    }()
+    
     private let stackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
-        stack.spacing = Metrics.Spacing.tiny
+        stack.spacing = Metrics.Spacing.medium
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
@@ -69,10 +77,13 @@ class RegionalityDefinitionView: UIView {
     
     private func buildViewHierarchy() {
         addSubview(headerTitleLabel)
-        addSubview(stackView)
+        addSubview(scrollView)
+        
+        scrollView.addSubview(stackView)
         
         stackView.addArrangedSubview(countrysideCard)
         stackView.addArrangedSubview(urbanCard)
+        stackView.addArrangedSubview(footer)
     }
     
     private func addConstraints() {
@@ -81,9 +92,15 @@ class RegionalityDefinitionView: UIView {
             headerTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Metrics.Spacing.medium),
             headerTitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Metrics.Spacing.medium),
             
-            stackView.topAnchor.constraint(equalTo: headerTitleLabel.bottomAnchor, constant: Metrics.Spacing.medium),
+            scrollView.topAnchor.constraint(equalTo: headerTitleLabel.bottomAnchor, constant: Metrics.Spacing.medium),
+            scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            
+            stackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: Metrics.Spacing.medium),
             stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Metrics.Spacing.large),
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Metrics.Spacing.large),
+            stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
         ])
     }
 }

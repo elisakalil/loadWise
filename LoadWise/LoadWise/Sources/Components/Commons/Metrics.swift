@@ -32,7 +32,7 @@ public enum Metrics {
         public static let width: CGFloat = 200
         public static let backgroundCardHeigth: CGFloat = 260
         public static let backgroundCardWidth: CGFloat = 188
-        public static let descriptionCardHeigth: CGFloat = 170
+        public static let descriptionCardHeigth: CGFloat = 160
         public static let descriptionCardcardWidth: CGFloat = 186
     }
     

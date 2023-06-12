@@ -11,9 +11,10 @@ import UIKit
 class FooterView: UIView {
     private let button: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .red
+        button.backgroundColor = .clear
         button.layer.cornerRadius = 12
-        button.alpha = 0.5
+        button.layer.borderColor = UIColor.white.cgColor
+        button.layer.borderWidth = 1.0
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -44,13 +45,13 @@ class FooterView: UIView {
     
     private func addConstraints() {
         NSLayoutConstraint.activate([
-            heightAnchor.constraint(equalToConstant: 110),
+            heightAnchor.constraint(equalToConstant: 100),
             
-            button.topAnchor.constraint(equalTo: topAnchor, constant: 16),
-            button.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 22),
-            button.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -22),
-            button.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor,constant: -16),
-            button.heightAnchor.constraint(equalToConstant: 90)
+            button.topAnchor.constraint(equalTo: topAnchor, constant: 24),
+            button.leadingAnchor.constraint(equalTo: leadingAnchor),
+            button.trailingAnchor.constraint(equalTo: trailingAnchor),
+            button.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor,constant: -24),
+            button.heightAnchor.constraint(equalToConstant: 48)
         ])
     }
 }

@@ -53,6 +53,13 @@ class OnboardingView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
+    private let footer: FooterViewProtocol = {
+        let footer = FooterView()
+        footer.translatesAutoresizingMaskIntoConstraints = false
+        return footer
+    }()
+    
     // MARK: INITIALIZERS
     
     override init(frame: CGRect = .zero) {
@@ -78,8 +85,10 @@ class OnboardingView: UIView {
         addSubview(scrollView)
                 
         scrollView.addSubview(contentScrollView)
+        
         contentScrollView.addSubview(headerTitleLabel)
         contentScrollView.addSubview(descriptionLabel)
+        contentScrollView.addSubview(footer)
     }
     
     private func addConstraints() {
@@ -106,7 +115,11 @@ class OnboardingView: UIView {
             descriptionLabel.topAnchor.constraint(equalTo: headerTitleLabel.bottomAnchor, constant: Metrics.Spacing.medium),
             descriptionLabel.leadingAnchor.constraint(equalTo: contentScrollView.leadingAnchor),
             descriptionLabel.trailingAnchor.constraint(equalTo: contentScrollView.trailingAnchor),
-            descriptionLabel.bottomAnchor.constraint(equalTo: contentScrollView.bottomAnchor)
+            
+            footer.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor),
+            footer.leadingAnchor.constraint(equalTo: contentScrollView.leadingAnchor),
+            footer.trailingAnchor.constraint(equalTo: contentScrollView.trailingAnchor),
+            footer.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
     }
     
@@ -140,6 +153,7 @@ Siga o passo-a-passo a seguir para dimensionar corretamente a carga da sua local
 extension OnboardingView: OnboardingViewProtocol {
     func updateView() {
         headerTitleLabel.text = "Dimensionamento de carga"
+        footer.updateButton(with: "Começar")
         
         setDescriptionAttributeString()
         setDescriptionLabelFontIfCould()
