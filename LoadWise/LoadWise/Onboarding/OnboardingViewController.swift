@@ -25,3 +25,10 @@ class OnboardingViewController: UIViewController {
         contentView.updateView()
     }
 }
+
+extension OnboardingViewController: OnboardingViewDelegate {
+    func buttonAction() {
+        let nextVC = RegionalityDefinitionViewController()
+        navigationController?.pushViewController(nextVC, animated: true)
+    }
+}

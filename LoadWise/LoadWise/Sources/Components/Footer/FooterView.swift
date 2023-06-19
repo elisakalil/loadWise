@@ -15,12 +15,15 @@ class FooterView: UIView {
         button.layer.cornerRadius = 12
         button.layer.borderColor = UIColor.white.cgColor
         button.layer.borderWidth = 1.0
+        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
     // MARK: INITIALIZERS
     
+    weak var delegate: FooterViewDelegate?
+
     override init(frame: CGRect = .zero) {
         super.init(frame: frame)
         setup()
@@ -53,6 +56,10 @@ class FooterView: UIView {
             button.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor,constant: -24),
             button.heightAnchor.constraint(equalToConstant: 48)
         ])
+    }
+    
+    @objc private func buttonAction() {
+        delegate?.buttonAction()
     }
 }
 

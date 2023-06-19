@@ -54,13 +54,16 @@ class OnboardingView: UIView {
         return label
     }()
     
-    private let footer: FooterViewProtocol = {
+    private lazy var footer: FooterViewProtocol = {
         let footer = FooterView()
+        footer.delegate = self
         footer.translatesAutoresizingMaskIntoConstraints = false
         return footer
     }()
     
     // MARK: INITIALIZERS
+    
+    weak var delegate: OnboardingViewDelegate?
     
     override init(frame: CGRect = .zero) {
         super.init(frame: frame)
@@ -157,5 +160,13 @@ extension OnboardingView: OnboardingViewProtocol {
         
         setDescriptionAttributeString()
         setDescriptionLabelFontIfCould()
+    }
+}
+
+//MARK: FooterViewDelegate
+
+extension OnboardingView: FooterViewDelegate {
+    func buttonAction() {
+        delegate?.buttonAction()
     }
 }
