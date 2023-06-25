@@ -9,5 +9,8 @@ import Foundation
 import UIKit
 
 protocol OnboardingViewProtocol where Self: UIView {
+    
+    var delegate: OnboardingViewDelegate? { get set }
+    
     func updateView()
 }

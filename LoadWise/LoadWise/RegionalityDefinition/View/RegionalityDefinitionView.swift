@@ -121,3 +121,9 @@ extension RegionalityDefinitionView: RegionalityDefinitionViewProtocol {
         footer.updateButton(with: "Continuar")
     }
 }
+
+extension RegionalityDefinitionView: FooterViewDelegate {
+    func buttonAction() {
+        print("Hello")
+    }
+}

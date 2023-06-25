@@ -9,13 +9,12 @@ import Foundation
 import UIKit
 
 class FooterView: UIView {
-    private let button: UIButton = {
+    var button: UIButton = {
         let button = UIButton()
         button.backgroundColor = .clear
         button.layer.cornerRadius = 12
-        button.layer.borderColor = UIColor.white.cgColor
         button.layer.borderWidth = 1.0
-        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        button.layer.borderColor = UIColor.white.cgColor
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -23,9 +22,8 @@ class FooterView: UIView {
     // MARK: INITIALIZERS
     
     weak var delegate: FooterViewDelegate?
-
-    override init(frame: CGRect = .zero) {
-        super.init(frame: frame)
+    init() {
+        super.init(frame: .zero)
         setup()
     }
     
@@ -33,7 +31,7 @@ class FooterView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: PRIVATE FUNCTIONS
+    // MARK: PRIVATE METHODS
     
     private func setup() {
         backgroundColor = .black
@@ -56,10 +54,6 @@ class FooterView: UIView {
             button.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor,constant: -24),
             button.heightAnchor.constraint(equalToConstant: 48)
         ])
-    }
-    
-    @objc private func buttonAction() {
-        delegate?.buttonAction()
     }
 }
 

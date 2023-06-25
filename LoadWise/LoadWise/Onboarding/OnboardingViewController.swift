@@ -13,7 +13,8 @@ class OnboardingViewController: UIViewController {
     // MARK: PROPERTIES
     
     let contentView: OnboardingViewProtocol = {
-        OnboardingView()
+        let view = OnboardingView()
+        return view
     }()
     
     //MARK: LIFE CYCLE
@@ -21,10 +22,15 @@ class OnboardingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        contentView.delegate = self
+        
         view = contentView
         contentView.updateView()
     }
 }
+
+
+//MARK: OnboardingViewDelegate
 
 extension OnboardingViewController: OnboardingViewDelegate {
     func buttonAction() {

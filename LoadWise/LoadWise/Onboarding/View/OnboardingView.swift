@@ -54,9 +54,9 @@ class OnboardingView: UIView {
         return label
     }()
     
-    private lazy var footer: FooterViewProtocol = {
+    private lazy var footer: FooterView = {
         let footer = FooterView()
-        footer.delegate = self
+        footer.button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         footer.translatesAutoresizingMaskIntoConstraints = false
         return footer
     }()
@@ -65,8 +65,8 @@ class OnboardingView: UIView {
     
     weak var delegate: OnboardingViewDelegate?
     
-    override init(frame: CGRect = .zero) {
-        super.init(frame: frame)
+    init() {
+        super.init(frame: .zero)
         setup()
     }
     
@@ -81,6 +81,10 @@ class OnboardingView: UIView {
         
         buildViewHierarchy()
         addConstraints()
+    }
+    
+    @objc public func buttonAction() {
+        delegate?.buttonAction()
     }
     
     private func buildViewHierarchy() {
@@ -122,13 +126,13 @@ class OnboardingView: UIView {
             footer.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor),
             footer.leadingAnchor.constraint(equalTo: contentScrollView.leadingAnchor),
             footer.trailingAnchor.constraint(equalTo: contentScrollView.trailingAnchor),
-            footer.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+            footer.bottomAnchor.constraint(equalTo: contentScrollView.bottomAnchor)
         ])
     }
     
     private func setDescriptionLabelFontIfCould() {
-        if let georgiaFont = UIFont(name: "Georgia", size: Metrics.Font.small) {
-            descriptionLabel.font = georgiaFont
+        if let montserratFont = UIFont(name: "Montserrat", size: Metrics.Font.small) {
+            descriptionLabel.font = montserratFont
         } else {
             descriptionLabel.font = UIFont.systemFont(ofSize: Metrics.Font.small)
         }
@@ -154,19 +158,12 @@ Siga o passo-a-passo a seguir para dimensionar corretamente a carga da sua local
 //MARK: OnboardingViewProtocol
 
 extension OnboardingView: OnboardingViewProtocol {
+    
     func updateView() {
         headerTitleLabel.text = "Dimensionamento de carga"
         footer.updateButton(with: "Começar")
         
         setDescriptionAttributeString()
         setDescriptionLabelFontIfCould()
-    }
-}
-
-//MARK: FooterViewDelegate
-
-extension OnboardingView: FooterViewDelegate {
-    func buttonAction() {
-        delegate?.buttonAction()
     }
 }
