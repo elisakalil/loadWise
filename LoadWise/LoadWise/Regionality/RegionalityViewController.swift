@@ -1,5 +1,5 @@
 //
-//  RegionalityDefinition.swift
+//  RegionalityViewController.swift
 //  LoadWise
 //
 //  Created by Elisa Kalil on 08/06/23.
@@ -7,12 +7,12 @@
 
 import UIKit
 
-class RegionalityDefinitionViewController: UIViewController {
+class RegionalityViewController: UIViewController {
 
     // MARK: PROPERTIES
     
-    let contentView: RegionalityDefinitionViewProtocol = {
-        RegionalityDefinitionView()
+    let contentView: RegionalityViewProtocol = {
+        RegionalityView()
     }()
     override func viewDidLoad() {
         super.viewDidLoad()

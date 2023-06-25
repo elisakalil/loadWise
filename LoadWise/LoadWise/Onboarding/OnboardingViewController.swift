@@ -34,7 +34,7 @@ class OnboardingViewController: UIViewController {
 
 extension OnboardingViewController: OnboardingViewDelegate {
     func buttonAction() {
-        let nextVC = RegionalityDefinitionViewController()
+        let nextVC = RegionalityViewController()
         navigationController?.pushViewController(nextVC, animated: true)
     }
 }

@@ -42,11 +42,17 @@ class CardView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
+    private let selector: SelectorViewProtocol = {
+        let selector = SelectorView()
+        selector.translatesAutoresizingMaskIntoConstraints = false
+        return selector
+    }()
         
     // MARK: INITIALIZERS
     
-    override init(frame: CGRect = .zero) {
-        super.init(frame: frame)
+    init() {
+        super.init(frame: .zero)
         setup()
     }
     
@@ -61,6 +67,11 @@ class CardView: UIView {
         
         buildViewHierarchy()
         addConstraints()
+        
+        selector.updateSelector(isSelect: false)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didSelectRegionality))
+        selector.addGestureRecognizer(tapGesture)
+        selector.isUserInteractionEnabled = true
     }
     
     private func buildViewHierarchy() {
@@ -68,6 +79,7 @@ class CardView: UIView {
         addSubview(titleLabel)
         addSubview(descriptionLabel)
         addSubview(descriptionImageView)
+        addSubview(selector)
     }
     
     private func addConstraints() {
@@ -83,6 +95,9 @@ class CardView: UIView {
             titleLabel.topAnchor.constraint(equalTo: backgroundCardImageView.topAnchor, constant: 22),
             titleLabel.leadingAnchor.constraint(equalTo: backgroundCardImageView.leadingAnchor, constant: 16),
             
+            selector.topAnchor.constraint(equalTo: backgroundCardImageView.topAnchor, constant: 22),
+            selector.trailingAnchor.constraint(equalTo: backgroundCardImageView.trailingAnchor, constant: -22),
+            
             descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
             descriptionLabel.leadingAnchor.constraint(equalTo: backgroundCardImageView.leadingAnchor, constant: 16),
             
@@ -92,6 +107,10 @@ class CardView: UIView {
             descriptionImageView.heightAnchor.constraint(equalToConstant: Metrics.ImageSize.descriptionCardHeigth),
             descriptionImageView.widthAnchor.constraint(equalToConstant: Metrics.ImageSize.descriptionCardcardWidth)
         ])
+    }
+    
+    @objc private func didSelectRegionality() {
+        selector.updateSelector(isSelect: true)
     }
 }
 
@@ -109,7 +128,7 @@ extension CardView: CardViewProtocol {
 
         backgroundCardImageView.image = image
         titleLabel.text = title
-        titleLabel.font = UIFont(name: "Georgia", size: 26)
+        titleLabel.font = .systemFont(ofSize: 26)
         
         descriptionImageView.image = UIImage(named: descriptionImage)
         

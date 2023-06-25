@@ -1,5 +1,5 @@
 //
-//  RegionalityDefinitionView.swift
+//  RegionalityView.swift
 //  LoadWise
 //
 //  Created by Elisa Kalil on 11/06/23.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class RegionalityDefinitionView: UIView {
+class RegionalityView: UIView {
     
     private let headerTitleLabel: UILabel = {
         let label = UILabel()
@@ -105,7 +105,7 @@ class RegionalityDefinitionView: UIView {
     }
 }
 
-extension RegionalityDefinitionView: RegionalityDefinitionViewProtocol {
+extension RegionalityView: RegionalityViewProtocol {
     func updateView() {
         headerTitleLabel.text = "Selecione a sua regionalidade"
         
@@ -122,7 +122,7 @@ extension RegionalityDefinitionView: RegionalityDefinitionViewProtocol {
     }
 }
 
-extension RegionalityDefinitionView: FooterViewDelegate {
+extension RegionalityView: FooterViewDelegate {
     func buttonAction() {
         print("Hello")
     }
