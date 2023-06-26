@@ -58,6 +58,7 @@ class RegionalityView: UIView {
     // MARK: INITIALIZERS
     
     private var selectedCard: String?
+    weak var delegate: RegionalityViewDelegate?
     
     init() {
         super.init(frame: .zero)
@@ -119,34 +120,26 @@ class RegionalityView: UIView {
     
     @objc private func didSelectCountrySide() {
         countrysideCard.updateSelector(isSelect: true)
-        handlerCardSelection(with: RegionalityType.countrySide.rawValue)
+        delegate?.handlerCardSelection(with: RegionalityType.countrySide.rawValue)
     }
     
     @objc private func didSelectUrbanSide() {
         urbanCard.updateSelector(isSelect: true)
-        handlerCardSelection(with: RegionalityType.urbanSide.rawValue)
-    }
-    
-    private func handlerCardSelection(with selectedRegionality: String) {
-        guard selectedCard != nil,
-              selectedCard != selectedRegionality else {
-            if selectedRegionality == RegionalityType.countrySide.rawValue {
-                urbanCard.updateSelector(isSelect: false)
-            } else {
-                countrysideCard.updateSelector(isSelect: false)
-            }
-            return
-        }
-        if selectedRegionality == RegionalityType.countrySide.rawValue {
-            urbanCard.updateSelector(isSelect: false)
-        } else {
-            countrysideCard.updateSelector(isSelect: false)
-        }
-        selectedCard = selectedRegionality
+        delegate?.handlerCardSelection(with: RegionalityType.urbanSide.rawValue)
     }
 }
 
 extension RegionalityView: RegionalityViewProtocol {
+    func updateSelector(with regionality: RegionalityType, isSelect: Bool) {
+        if regionality == RegionalityType.countrySide {
+            countrysideCard.updateSelector(isSelect: isSelect)
+        }
+        
+        if regionality == RegionalityType.urbanSide {
+            urbanCard.updateSelector(isSelect: isSelect)
+        }
+    }
+    
     func updateView() {
         headerTitleLabel.text = "Selecione a sua regionalidade"
         
@@ -166,5 +159,6 @@ extension RegionalityView: RegionalityViewProtocol {
 extension RegionalityView: FooterViewDelegate {
     func buttonAction() {
         print("Hello")
+        //TODO: delegate para VC
     }
 }
