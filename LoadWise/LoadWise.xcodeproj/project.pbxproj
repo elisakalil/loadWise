@@ -29,7 +29,6 @@
 		69B39F032A38DE470037724D /* OnboardingViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B39F022A38DE470037724D /* OnboardingViewDelegate.swift */; };
 		69B39F052A38E8250037724D /* FooterViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B39F042A38E8250037724D /* FooterViewDelegate.swift */; };
 		69C46EA92A48F76900A1031E /* RegionalityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C46EA82A48F76900A1031E /* RegionalityViewModel.swift */; };
-		69C46EAC2A48F7A300A1031E /* RegionalityEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C46EAB2A48F7A300A1031E /* RegionalityEntity.swift */; };
 		69D5F0A52A48D92C00A50CC4 /* SelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D5F0A42A48D92C00A50CC4 /* SelectorView.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,7 +57,6 @@
 		69B39F022A38DE470037724D /* OnboardingViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewDelegate.swift; sourceTree = "<group>"; };
 		69B39F042A38E8250037724D /* FooterViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterViewDelegate.swift; sourceTree = "<group>"; };
 		69C46EA82A48F76900A1031E /* RegionalityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionalityViewModel.swift; sourceTree = "<group>"; };
-		69C46EAB2A48F7A300A1031E /* RegionalityEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionalityEntity.swift; sourceTree = "<group>"; };
 		69D5F0A42A48D92C00A50CC4 /* SelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,7 +121,6 @@
 		69B39EDC2A3236BB0037724D /* Regionality */ = {
 			isa = PBXGroup;
 			children = (
-				69C46EAA2A48F78E00A1031E /* Entity */,
 				69B39EDD2A3237860037724D /* View */,
 				69B39ECC2A322BE90037724D /* RegionalityViewController.swift */,
 				69C46EA82A48F76900A1031E /* RegionalityViewModel.swift */,
@@ -216,14 +213,6 @@
 			path = Footer;
 			sourceTree = "<group>";
 		};
-		69C46EAA2A48F78E00A1031E /* Entity */ = {
-			isa = PBXGroup;
-			children = (
-				69C46EAB2A48F7A300A1031E /* RegionalityEntity.swift */,
-			);
-			path = Entity;
-			sourceTree = "<group>";
-		};
 		69D5F0A32A48D91300A50CC4 /* Selector */ = {
 			isa = PBXGroup;
 			children = (
@@ -312,7 +301,6 @@
 				69B39EF42A36442D0037724D /* CardView.swift in Sources */,
 				69B39EC92A322BE90037724D /* AppDelegate.swift in Sources */,
 				69B39ECB2A322BE90037724D /* SceneDelegate.swift in Sources */,
-				69C46EAC2A48F7A300A1031E /* RegionalityEntity.swift in Sources */,
 				69B39F012A3684F70037724D /* FooterViewProtocol.swift in Sources */,
 				69589E512A49DC2A009E2267 /* RegionalityType.swift in Sources */,
 				69B39EE32A325A410037724D /* OnboardingView.swift in Sources */,

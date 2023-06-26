@@ -127,22 +127,22 @@ class RegionalityView: UIView {
         handlerCardSelection(with: RegionalityType.urbanSide.rawValue)
     }
     
-    private func handlerCardSelection(with regionality: String) {
+    private func handlerCardSelection(with selectedRegionality: String) {
         guard selectedCard != nil,
-              selectedCard != regionality else {
-            if regionality == RegionalityType.countrySide.rawValue {
+              selectedCard != selectedRegionality else {
+            if selectedRegionality == RegionalityType.countrySide.rawValue {
                 urbanCard.updateSelector(isSelect: false)
             } else {
                 countrysideCard.updateSelector(isSelect: false)
             }
             return
         }
-        if regionality == RegionalityType.countrySide.rawValue {
+        if selectedRegionality == RegionalityType.countrySide.rawValue {
             urbanCard.updateSelector(isSelect: false)
         } else {
             countrysideCard.updateSelector(isSelect: false)
         }
-        selectedCard = regionality
+        selectedCard = selectedRegionality
     }
 }
 
