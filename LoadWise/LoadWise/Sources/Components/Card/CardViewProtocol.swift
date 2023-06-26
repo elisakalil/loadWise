@@ -9,8 +9,11 @@ import Foundation
 import UIKit
 
 protocol CardViewProtocol where Self: UIView {
+
     func updateCardView(backgroundImageName: String,
                         descriptionImage: String,
                         descriptionText: String,
                         title: String)
+    
+    func updateSelector(isSelect: Bool)
 }

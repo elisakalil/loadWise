@@ -57,8 +57,10 @@ class RegionalityView: UIView {
     
     // MARK: INITIALIZERS
     
-    override init(frame: CGRect = .zero) {
-        super.init(frame: frame)
+    private var selectedCard: String?
+    
+    init() {
+        super.init(frame: .zero)
         setup()
     }
     
@@ -73,6 +75,7 @@ class RegionalityView: UIView {
         
         buildViewHierarchy()
         addConstraints()
+        setupTapGesture()
     }
     
     private func buildViewHierarchy() {
@@ -102,6 +105,44 @@ class RegionalityView: UIView {
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Metrics.Spacing.large),
             stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
         ])
+    }
+    
+    private func setupTapGesture() {
+        let tapCountyGesture = UITapGestureRecognizer(target: self, action: #selector(didSelectCountrySide))
+        countrysideCard.addGestureRecognizer(tapCountyGesture)
+        countrysideCard.isUserInteractionEnabled = true
+        
+        let tapUrbanGesture = UITapGestureRecognizer(target: self, action: #selector(didSelectUrbanSide))
+        urbanCard.addGestureRecognizer(tapUrbanGesture)
+        urbanCard.isUserInteractionEnabled = true
+    }
+    
+    @objc private func didSelectCountrySide() {
+        countrysideCard.updateSelector(isSelect: true)
+        handlerCardSelection(with: RegionalityType.countrySide.rawValue)
+    }
+    
+    @objc private func didSelectUrbanSide() {
+        urbanCard.updateSelector(isSelect: true)
+        handlerCardSelection(with: RegionalityType.urbanSide.rawValue)
+    }
+    
+    private func handlerCardSelection(with regionality: String) {
+        guard selectedCard != nil,
+              selectedCard != regionality else {
+            if regionality == RegionalityType.countrySide.rawValue {
+                urbanCard.updateSelector(isSelect: false)
+            } else {
+                countrysideCard.updateSelector(isSelect: false)
+            }
+            return
+        }
+        if regionality == RegionalityType.countrySide.rawValue {
+            urbanCard.updateSelector(isSelect: false)
+        } else {
+            countrysideCard.updateSelector(isSelect: false)
+        }
+        selectedCard = regionality
     }
 }
 

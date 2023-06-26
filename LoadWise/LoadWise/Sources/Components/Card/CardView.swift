@@ -69,9 +69,6 @@ class CardView: UIView {
         addConstraints()
         
         selector.updateSelector(isSelect: false)
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didSelectRegionality))
-        selector.addGestureRecognizer(tapGesture)
-        selector.isUserInteractionEnabled = true
     }
     
     private func buildViewHierarchy() {
@@ -108,13 +105,13 @@ class CardView: UIView {
             descriptionImageView.widthAnchor.constraint(equalToConstant: Metrics.ImageSize.descriptionCardcardWidth)
         ])
     }
-    
-    @objc private func didSelectRegionality() {
-        selector.updateSelector(isSelect: true)
-    }
 }
 
 extension CardView: CardViewProtocol {
+    func updateSelector(isSelect: Bool) {
+        selector.updateSelector(isSelect: isSelect)
+    }
+    
     
     func updateCardView(backgroundImageName: String,
                         descriptionImage: String,
