@@ -36,11 +36,20 @@ class RegionalityViewController: UIViewController {
     }
 }
 
+//MARK: RegionalityViewDelegate
+
 extension RegionalityViewController: RegionalityViewDelegate {
+    func buttonAction() {
+        let nextVC = EquipmentsViewController()
+        navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
     func handlerCardSelection(with selectedRegionality: String) {
         viewModel.handlerCardSelection(with: selectedRegionality)
     }
 }
+
+//MARK: RegionalityViewModelDelegate
 
 extension RegionalityViewController: RegionalityViewModelDelegate {
     func updateSelector(with regionality: RegionalityType, isSelect: Bool) {

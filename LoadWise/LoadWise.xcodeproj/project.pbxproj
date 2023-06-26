@@ -13,6 +13,9 @@
 		69589E592A4A003F009E2267 /* RegionalityViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69589E582A4A003F009E2267 /* RegionalityViewDelegate.swift */; };
 		69589E5B2A4A0196009E2267 /* RegionalityViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69589E5A2A4A0196009E2267 /* RegionalityViewModelProtocol.swift */; };
 		69589E5E2A4A03D9009E2267 /* RegionalityViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69589E5D2A4A03D9009E2267 /* RegionalityViewModelDelegate.swift */; };
+		69589E602A4A25FF009E2267 /* EquipmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69589E5F2A4A25FF009E2267 /* EquipmentsViewController.swift */; };
+		69589E632A4A262B009E2267 /* EquipmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69589E622A4A262B009E2267 /* EquipmentsView.swift */; };
+		69589E652A4A2666009E2267 /* EquipmentsViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69589E642A4A2666009E2267 /* EquipmentsViewProtocol.swift */; };
 		69B39EC92A322BE90037724D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B39EC82A322BE90037724D /* AppDelegate.swift */; };
 		69B39ECB2A322BE90037724D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B39ECA2A322BE90037724D /* SceneDelegate.swift */; };
 		69B39ECD2A322BE90037724D /* RegionalityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B39ECC2A322BE90037724D /* RegionalityViewController.swift */; };
@@ -43,6 +46,9 @@
 		69589E582A4A003F009E2267 /* RegionalityViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionalityViewDelegate.swift; sourceTree = "<group>"; };
 		69589E5A2A4A0196009E2267 /* RegionalityViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionalityViewModelProtocol.swift; sourceTree = "<group>"; };
 		69589E5D2A4A03D9009E2267 /* RegionalityViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionalityViewModelDelegate.swift; sourceTree = "<group>"; };
+		69589E5F2A4A25FF009E2267 /* EquipmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentsViewController.swift; sourceTree = "<group>"; };
+		69589E622A4A262B009E2267 /* EquipmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentsView.swift; sourceTree = "<group>"; };
+		69589E642A4A2666009E2267 /* EquipmentsViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentsViewProtocol.swift; sourceTree = "<group>"; };
 		69B39EC52A322BE90037724D /* LoadWise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoadWise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69B39EC82A322BE90037724D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69B39ECA2A322BE90037724D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,7 +104,9 @@
 		69589E522A49FC7A009E2267 /* Equipments */ = {
 			isa = PBXGroup;
 			children = (
+				69589E612A4A261E009E2267 /* View */,
 				69589E552A49FCE2009E2267 /* Entity */,
+				69589E5F2A4A25FF009E2267 /* EquipmentsViewController.swift */,
 			);
 			path = Equipments;
 			sourceTree = "<group>";
@@ -121,6 +129,15 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		69589E612A4A261E009E2267 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				69589E622A4A262B009E2267 /* EquipmentsView.swift */,
+				69589E642A4A2666009E2267 /* EquipmentsViewProtocol.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		69B39EBC2A322BE90037724D = {
 			isa = PBXGroup;
 			children = (
@@ -140,10 +157,10 @@
 		69B39EC72A322BE90037724D /* LoadWise */ = {
 			isa = PBXGroup;
 			children = (
-				69589E522A49FC7A009E2267 /* Equipments */,
 				69B39EE42A32632B0037724D /* Sources */,
 				69B39EDE2A3259A80037724D /* Onboarding */,
 				69B39EDC2A3236BB0037724D /* Regionality */,
+				69589E522A49FC7A009E2267 /* Equipments */,
 				69B39EC82A322BE90037724D /* AppDelegate.swift */,
 				69B39ECA2A322BE90037724D /* SceneDelegate.swift */,
 				69B39ED12A322BEA0037724D /* Assets.xcassets */,
@@ -331,8 +348,11 @@
 				69B39F032A38DE470037724D /* OnboardingViewDelegate.swift in Sources */,
 				69B39ECD2A322BE90037724D /* RegionalityViewController.swift in Sources */,
 				69B39EFF2A3683B20037724D /* FooterView.swift in Sources */,
+				69589E652A4A2666009E2267 /* EquipmentsViewProtocol.swift in Sources */,
+				69589E602A4A25FF009E2267 /* EquipmentsViewController.swift in Sources */,
 				695726082A48E215006F5A76 /* SelectorViewProtocol.swift in Sources */,
 				69B39EE62A3263390037724D /* Metrics.swift in Sources */,
+				69589E632A4A262B009E2267 /* EquipmentsView.swift in Sources */,
 				69B39EF92A367A260037724D /* Icon+DescriptionLabel.swift in Sources */,
 				69B39EF42A36442D0037724D /* CardView.swift in Sources */,
 				69B39EC92A322BE90037724D /* AppDelegate.swift in Sources */,

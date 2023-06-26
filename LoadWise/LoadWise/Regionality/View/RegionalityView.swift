@@ -51,6 +51,7 @@ class RegionalityView: UIView {
     
     private let footer: FooterViewProtocol = {
         let footer = FooterView()
+        footer.button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         footer.translatesAutoresizingMaskIntoConstraints = false
         return footer
     }()
@@ -67,6 +68,10 @@ class RegionalityView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc public func buttonAction() {
+        delegate?.buttonAction()
     }
     
     // MARK: PRIVATE FUNCTIONS
@@ -129,6 +134,8 @@ class RegionalityView: UIView {
     }
 }
 
+//MARK: RegionalityViewProtocol
+
 extension RegionalityView: RegionalityViewProtocol {
     func updateSelector(with regionality: RegionalityType, isSelect: Bool) {
         if regionality == RegionalityType.countrySide {
@@ -153,12 +160,5 @@ extension RegionalityView: RegionalityViewProtocol {
                                  title: "Área urbana")
         
         footer.updateButton(with: "Continuar")
-    }
-}
-
-extension RegionalityView: FooterViewDelegate {
-    func buttonAction() {
-        print("Hello")
-        //TODO: delegate para VC
     }
 }

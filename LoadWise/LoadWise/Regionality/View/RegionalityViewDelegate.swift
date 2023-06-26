@@ -9,4 +9,5 @@ import Foundation
 
 protocol RegionalityViewDelegate: AnyObject {
     func handlerCardSelection(with selectedRegionality: String)
+    func buttonAction()
 }

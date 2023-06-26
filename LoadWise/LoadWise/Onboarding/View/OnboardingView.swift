@@ -74,6 +74,10 @@ class OnboardingView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    @objc public func buttonAction() {
+        delegate?.buttonAction()
+    }
+    
     // MARK: PRIVATE FUNCTIONS
     
     private func setup() {
@@ -81,10 +85,6 @@ class OnboardingView: UIView {
         
         buildViewHierarchy()
         addConstraints()
-    }
-    
-    @objc public func buttonAction() {
-        delegate?.buttonAction()
     }
     
     private func buildViewHierarchy() {
