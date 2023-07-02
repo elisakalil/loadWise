@@ -10,5 +10,5 @@ import Foundation
 protocol RegionalityViewModelProtocol: AnyObject {
     var delegate: RegionalityViewModelDelegate? { get set }
     
-    func handlerCardSelection(with selectedRegionality: String)
+    func handleSelectedRegionality(with selectedRegionality: String)
 }

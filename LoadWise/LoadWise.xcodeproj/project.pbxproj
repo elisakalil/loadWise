@@ -16,6 +16,15 @@
 		69589E602A4A25FF009E2267 /* EquipmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69589E5F2A4A25FF009E2267 /* EquipmentsViewController.swift */; };
 		69589E632A4A262B009E2267 /* EquipmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69589E622A4A262B009E2267 /* EquipmentsView.swift */; };
 		69589E652A4A2666009E2267 /* EquipmentsViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69589E642A4A2666009E2267 /* EquipmentsViewProtocol.swift */; };
+		69589E682A4A36D3009E2267 /* ControllCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69589E672A4A36D3009E2267 /* ControllCenterView.swift */; };
+		69589E6B2A4A3844009E2267 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69589E6A2A4A3844009E2267 /* TagView.swift */; };
+		69589E6D2A4B493B009E2267 /* ControllCenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69589E6C2A4B493B009E2267 /* ControllCenterProtocol.swift */; };
+		69589E702A4B6290009E2267 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69589E6F2A4B6290009E2267 /* Colors.swift */; };
+		69589E742A4B6B4F009E2267 /* TagViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69589E732A4B6B4F009E2267 /* TagViewProtocol.swift */; };
+		69589E762A51BF45009E2267 /* EquipmentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69589E752A51BF45009E2267 /* EquipmentsViewModel.swift */; };
+		69589E792A51BF70009E2267 /* EquipmentsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69589E782A51BF70009E2267 /* EquipmentsViewModelProtocol.swift */; };
+		69589E7C2A51C367009E2267 /* Labels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69589E7B2A51C367009E2267 /* Labels.swift */; };
+		69589E7E2A51C9A1009E2267 /* EquipmentsViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69589E7D2A51C9A1009E2267 /* EquipmentsViewModelDelegate.swift */; };
 		69B39EC92A322BE90037724D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B39EC82A322BE90037724D /* AppDelegate.swift */; };
 		69B39ECB2A322BE90037724D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B39ECA2A322BE90037724D /* SceneDelegate.swift */; };
 		69B39ECD2A322BE90037724D /* RegionalityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B39ECC2A322BE90037724D /* RegionalityViewController.swift */; };
@@ -49,6 +58,15 @@
 		69589E5F2A4A25FF009E2267 /* EquipmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentsViewController.swift; sourceTree = "<group>"; };
 		69589E622A4A262B009E2267 /* EquipmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentsView.swift; sourceTree = "<group>"; };
 		69589E642A4A2666009E2267 /* EquipmentsViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentsViewProtocol.swift; sourceTree = "<group>"; };
+		69589E672A4A36D3009E2267 /* ControllCenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllCenterView.swift; sourceTree = "<group>"; };
+		69589E6A2A4A3844009E2267 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
+		69589E6C2A4B493B009E2267 /* ControllCenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllCenterProtocol.swift; sourceTree = "<group>"; };
+		69589E6F2A4B6290009E2267 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		69589E732A4B6B4F009E2267 /* TagViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewProtocol.swift; sourceTree = "<group>"; };
+		69589E752A51BF45009E2267 /* EquipmentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentsViewModel.swift; sourceTree = "<group>"; };
+		69589E782A51BF70009E2267 /* EquipmentsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentsViewModelProtocol.swift; sourceTree = "<group>"; };
+		69589E7B2A51C367009E2267 /* Labels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Labels.swift; sourceTree = "<group>"; };
+		69589E7D2A51C9A1009E2267 /* EquipmentsViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentsViewModelDelegate.swift; sourceTree = "<group>"; };
 		69B39EC52A322BE90037724D /* LoadWise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoadWise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69B39EC82A322BE90037724D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69B39ECA2A322BE90037724D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +106,8 @@
 		69589E4E2A49DC12009E2267 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				69589E7A2A51C331009E2267 /* Labels */,
+				69589E6E2A4B627A009E2267 /* Colors */,
 				69589E4F2A49DC1A009E2267 /* Regionality */,
 			);
 			path = Models;
@@ -104,6 +124,7 @@
 		69589E522A49FC7A009E2267 /* Equipments */ = {
 			isa = PBXGroup;
 			children = (
+				69589E772A51BF56009E2267 /* ViewModel */,
 				69589E612A4A261E009E2267 /* View */,
 				69589E552A49FCE2009E2267 /* Entity */,
 				69589E5F2A4A25FF009E2267 /* EquipmentsViewController.swift */,
@@ -123,8 +144,8 @@
 			isa = PBXGroup;
 			children = (
 				69589E5A2A4A0196009E2267 /* RegionalityViewModelProtocol.swift */,
-				69C46EA82A48F76900A1031E /* RegionalityViewModel.swift */,
 				69589E5D2A4A03D9009E2267 /* RegionalityViewModelDelegate.swift */,
+				69C46EA82A48F76900A1031E /* RegionalityViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -136,6 +157,50 @@
 				69589E642A4A2666009E2267 /* EquipmentsViewProtocol.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		69589E662A4A36A1009E2267 /* ControllCenter */ = {
+			isa = PBXGroup;
+			children = (
+				69589E672A4A36D3009E2267 /* ControllCenterView.swift */,
+				69589E6C2A4B493B009E2267 /* ControllCenterProtocol.swift */,
+			);
+			path = ControllCenter;
+			sourceTree = "<group>";
+		};
+		69589E692A4A382F009E2267 /* Tag */ = {
+			isa = PBXGroup;
+			children = (
+				69589E6A2A4A3844009E2267 /* TagView.swift */,
+				69589E732A4B6B4F009E2267 /* TagViewProtocol.swift */,
+			);
+			path = Tag;
+			sourceTree = "<group>";
+		};
+		69589E6E2A4B627A009E2267 /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				69589E6F2A4B6290009E2267 /* Colors.swift */,
+			);
+			path = Colors;
+			sourceTree = "<group>";
+		};
+		69589E772A51BF56009E2267 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				69589E752A51BF45009E2267 /* EquipmentsViewModel.swift */,
+				69589E782A51BF70009E2267 /* EquipmentsViewModelProtocol.swift */,
+				69589E7D2A51C9A1009E2267 /* EquipmentsViewModelDelegate.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		69589E7A2A51C331009E2267 /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				69589E7B2A51C367009E2267 /* Labels.swift */,
+			);
+			path = Labels;
 			sourceTree = "<group>";
 		};
 		69B39EBC2A322BE90037724D = {
@@ -221,22 +286,24 @@
 		69B39EF12A3644020037724D /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				69589E692A4A382F009E2267 /* Tag */,
+				69589E662A4A36A1009E2267 /* ControllCenter */,
 				69D5F0A32A48D91300A50CC4 /* Selector */,
 				69B39EFD2A3683820037724D /* Footer */,
 				69B39EFC2A3680C40037724D /* Commons */,
 				69B39EF72A367A000037724D /* Icon+DescriptionLabel */,
-				69B39EF22A36440C0037724D /* Card */,
+				69B39EF22A36440C0037724D /* RegionalityCard */,
 			);
 			path = Components;
 			sourceTree = "<group>";
 		};
-		69B39EF22A36440C0037724D /* Card */ = {
+		69B39EF22A36440C0037724D /* RegionalityCard */ = {
 			isa = PBXGroup;
 			children = (
 				69B39EF32A36442D0037724D /* CardView.swift */,
 				69B39EF52A36444F0037724D /* CardViewProtocol.swift */,
 			);
-			path = Card;
+			path = RegionalityCard;
 			sourceTree = "<group>";
 		};
 		69B39EF72A367A000037724D /* Icon+DescriptionLabel */ = {
@@ -348,6 +415,7 @@
 				69B39F032A38DE470037724D /* OnboardingViewDelegate.swift in Sources */,
 				69B39ECD2A322BE90037724D /* RegionalityViewController.swift in Sources */,
 				69B39EFF2A3683B20037724D /* FooterView.swift in Sources */,
+				69589E762A51BF45009E2267 /* EquipmentsViewModel.swift in Sources */,
 				69589E652A4A2666009E2267 /* EquipmentsViewProtocol.swift in Sources */,
 				69589E602A4A25FF009E2267 /* EquipmentsViewController.swift in Sources */,
 				695726082A48E215006F5A76 /* SelectorViewProtocol.swift in Sources */,
@@ -356,12 +424,15 @@
 				69B39EF92A367A260037724D /* Icon+DescriptionLabel.swift in Sources */,
 				69B39EF42A36442D0037724D /* CardView.swift in Sources */,
 				69B39EC92A322BE90037724D /* AppDelegate.swift in Sources */,
+				69589E6B2A4A3844009E2267 /* TagView.swift in Sources */,
 				69B39ECB2A322BE90037724D /* SceneDelegate.swift in Sources */,
+				69589E7C2A51C367009E2267 /* Labels.swift in Sources */,
 				69589E5E2A4A03D9009E2267 /* RegionalityViewModelDelegate.swift in Sources */,
 				69589E572A49FCF4009E2267 /* EquipmentsEntity.swift in Sources */,
 				69589E5B2A4A0196009E2267 /* RegionalityViewModelProtocol.swift in Sources */,
 				69589E592A4A003F009E2267 /* RegionalityViewDelegate.swift in Sources */,
 				69B39F012A3684F70037724D /* FooterViewProtocol.swift in Sources */,
+				69589E742A4B6B4F009E2267 /* TagViewProtocol.swift in Sources */,
 				69589E512A49DC2A009E2267 /* RegionalityType.swift in Sources */,
 				69B39EE32A325A410037724D /* OnboardingView.swift in Sources */,
 				69B39EEA2A3637B70037724D /* RegionalityView.swift in Sources */,
@@ -369,10 +440,15 @@
 				69B39F052A38E8250037724D /* FooterViewDelegate.swift in Sources */,
 				69B39EEC2A3637EA0037724D /* RegionalityViewProtocol.swift in Sources */,
 				69B39EFB2A367E760037724D /* Icon+DescriptionLabelProtocol.swift in Sources */,
+				69589E702A4B6290009E2267 /* Colors.swift in Sources */,
 				69C46EA92A48F76900A1031E /* RegionalityViewModel.swift in Sources */,
+				69589E792A51BF70009E2267 /* EquipmentsViewModelProtocol.swift in Sources */,
 				69B39EE82A326C980037724D /* OnboardingViewProtocol.swift in Sources */,
+				69589E7E2A51C9A1009E2267 /* EquipmentsViewModelDelegate.swift in Sources */,
 				69B39EF62A36444F0037724D /* CardViewProtocol.swift in Sources */,
+				69589E6D2A4B493B009E2267 /* ControllCenterProtocol.swift in Sources */,
 				69B39EE02A3259CF0037724D /* OnboardingViewController.swift in Sources */,
+				69589E682A4A36D3009E2267 /* ControllCenterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,47 +8,30 @@
 import Foundation
 
 class RegionalityViewModel {
-    //MARK: PROPERTIES
     
+    //MARK: PROPERTIES
     private var regionality: String?
     weak var delegate: RegionalityViewModelDelegate?
-}
-
-extension RegionalityViewModel: RegionalityViewModelProtocol {
     
-    func handlerCardSelection(with selectedRegionality: String) {
-        guard regionality != nil,
-              regionality != selectedRegionality else {
-            if selectedRegionality == RegionalityType.countrySide.rawValue {
-                delegate?.updateSelector(with: RegionalityType.urbanSide, isSelect: false)
-            } else {
-                delegate?.updateSelector(with: RegionalityType.countrySide, isSelect: false)
-            }
-            return
-        }
+    private func toggleRegionalitySelection(selectedRegionality: String) {
         if selectedRegionality == RegionalityType.countrySide.rawValue {
             delegate?.updateSelector(with: RegionalityType.urbanSide, isSelect: false)
         } else {
             delegate?.updateSelector(with: RegionalityType.countrySide, isSelect: false)
         }
-        regionality = selectedRegionality
     }
 }
 
-//private func handlerCardSelection(with selectedRegionality: String) {
-//    guard selectedRegionality != nil,
-//          selectedRegionality != selectedRegionality else {
-//        if selectedRegionality == RegionalityType.countrySide.rawValue {
-//            urbanCard.updateSelector(isSelect: false)
-//        } else {
-//            countrysideCard.updateSelector(isSelect: false)
-//        }
-//        return
-//    }
-//    if selectedRegionality == RegionalityType.countrySide.rawValue {
-//        urbanCard.updateSelector(isSelect: false)
-//    } else {
-//        countrysideCard.updateSelector(isSelect: false)
-//    }
-//    selectedRegionality = selectedRegionality
-//}
+//MARK: RegionalityViewModelProtocol
+extension RegionalityViewModel: RegionalityViewModelProtocol {
+    
+    func handleSelectedRegionality(with selectedRegionality: String) {
+        guard regionality != nil,
+              regionality != selectedRegionality else {
+           toggleRegionalitySelection(selectedRegionality: selectedRegionality)
+            return
+        }
+        toggleRegionalitySelection(selectedRegionality: selectedRegionality)
+        regionality = selectedRegionality
+    }
+}

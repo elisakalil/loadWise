@@ -148,17 +148,17 @@ extension RegionalityView: RegionalityViewProtocol {
     }
     
     func updateView() {
-        headerTitleLabel.text = "Selecione a sua regionalidade"
+        headerTitleLabel.text = .selectYourRegionality
         
         countrysideCard.updateCardView(backgroundImageName: "countryside-background",
                                        descriptionImage: "florest",
-                                       descriptionText: "Agricultura, pecuária e extrativismo.",
-                                       title: "Área rural")
+                                       descriptionText: .countySideDescription,
+                                       title: .countySideTitle)
         urbanCard.updateCardView(backgroundImageName: "urbanArea-background",
                                  descriptionImage: "urbanArea",
-                                 descriptionText: "Cidade de grande, médio e pequeno porte.",
-                                 title: "Área urbana")
+                                 descriptionText: .urbanSideDescription,
+                                 title: .urbanSideTitle)
         
-        footer.updateButton(with: "Continuar")
+        footer.updateButton(with: .proceed)
     }
 }

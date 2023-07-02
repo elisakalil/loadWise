@@ -10,8 +10,20 @@ import UIKit
 
 class EquipmentsView: UIView {
     
-    private let countrysideCard: CardViewProtocol = {
-        let card = CardView()
+    private let headerTitleLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .left
+        label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 0
+        label.textColor = .white
+        label.font = UIFont.boldSystemFont(ofSize: 40)
+        label.text = .selectYourEquipments
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let controllCenter: ControllCenterProtocol = {
+        let card = ControllCenter()
         card.translatesAutoresizingMaskIntoConstraints = false
         return card
     }()
@@ -37,19 +49,30 @@ class EquipmentsView: UIView {
     }
     
     private func buildViewHierarchy() {
-        addSubview(countrysideCard)
+        addSubview(headerTitleLabel)
+        addSubview(controllCenter)
     }
     
     private func addConstraints() {
         NSLayoutConstraint.activate([
-            countrysideCard.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            countrysideCard.leadingAnchor.constraint(equalTo: leadingAnchor),
-            countrysideCard.trailingAnchor.constraint(equalTo: trailingAnchor),
-            countrysideCard.bottomAnchor.constraint(equalTo: bottomAnchor)
+            headerTitleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: Metrics.Spacing.medium),
+            headerTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Metrics.Spacing.medium),
+            headerTitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Metrics.Spacing.medium),
+            
+            controllCenter.topAnchor.constraint(equalTo: headerTitleLabel.bottomAnchor, constant: Metrics.Spacing.medium),
+            controllCenter.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Metrics.Spacing.medium),
+            controllCenter.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Metrics.Spacing.medium)
         ])
     }
 }
 
+//MARK: EquipmentsViewProtocol
+
 extension EquipmentsView: EquipmentsViewProtocol {
-    
+    func updateControllCenter(date: String, local: String, totalPower: String, typeOfConnection: String) {
+        controllCenter.updateControllCenter(date: date,
+                                            local: local,
+                                            totalPower: totalPower,
+                                            typeOfConnection: typeOfConnection)
+    }
 }
