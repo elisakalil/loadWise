@@ -41,8 +41,8 @@ class RegionalityViewController: UIViewController {
 extension RegionalityViewController: RegionalityViewDelegate {
     func buttonAction() {
         let regionality = viewModel.getSelectedRegionality()
-        let viewModel = EquipmentsViewModel()
-        let nextVC = EquipmentsViewController(viewModel: viewModel, parameters: .init(regionalityType: regionality))
+        let viewModel = AppliancesViewModel()
+        let nextVC = AppliancesViewController(viewModel: viewModel, parameters: .init(regionalityType: regionality))
         navigationController?.pushViewController(nextVC, animated: true)
     }
     

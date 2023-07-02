@@ -1,5 +1,5 @@
 //
-//  EquipmentsView.swift
+//  AppliancesView.swift
 //  LoadWise
 //
 //  Created by Elisa Kalil on 26/06/23.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class EquipmentsView: UIView {
+class AppliancesView: UIView {
     
     private let headerTitleLabel: UILabel = {
         let label = UILabel()
@@ -26,6 +26,12 @@ class EquipmentsView: UIView {
         let card = ControllCenter()
         card.translatesAutoresizingMaskIntoConstraints = false
         return card
+    }()
+    
+    private let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints  = false
+        return tableView
     }()
     
     // MARK: INITIALIZERS
@@ -68,7 +74,7 @@ class EquipmentsView: UIView {
 
 //MARK: EquipmentsViewProtocol
 
-extension EquipmentsView: EquipmentsViewProtocol {
+extension AppliancesView: AppliancesViewProtocol {
     func updateControllCenter(date: String,
                               local: String,
                               totalPower: String,

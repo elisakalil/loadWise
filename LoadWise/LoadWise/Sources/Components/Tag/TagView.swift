@@ -12,8 +12,7 @@ class TagView: UIView {
     
     private let tagLabel: UILabel = {
         let label = UILabel()
-        label.text = "12 kW"
-        label.font = .boldSystemFont(ofSize: 14)
+        label.font = .boldSystemFont(ofSize: 18)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

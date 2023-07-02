@@ -1,5 +1,5 @@
 //
-//  EquipmentsViewController.swift
+//  AppliancesViewController.swift
 //  LoadWise
 //
 //  Created by Elisa Kalil on 26/06/23.
@@ -8,18 +8,18 @@
 import Foundation
 import UIKit
 
-class EquipmentsViewController: UIViewController {
+class AppliancesViewController: UIViewController {
     
     // MARK: PROPERTIES
-    private var viewModel: EquipmentsViewModelProtocol
-    private var parameters: EquipmentsParameters
+    private var viewModel: AppliancesViewModelProtocol
+    private var parameters: AppliancesParameters
     
-    private let contentView: EquipmentsViewProtocol = {
-        let view = EquipmentsView()
+    private let contentView: AppliancesViewProtocol = {
+        let view = AppliancesView()
         return view
     }()
     
-    init(viewModel: EquipmentsViewModel, parameters: EquipmentsParameters) {
+    init(viewModel: AppliancesViewModel, parameters: AppliancesParameters) {
         self.viewModel = viewModel
         self.parameters = parameters
         super.init(nibName: nil , bundle: nil)
@@ -42,12 +42,13 @@ class EquipmentsViewController: UIViewController {
 }
 
 // MARK: EquipmentsViewController
-extension EquipmentsViewController: EquipmentsViewModelDelegate {
+extension AppliancesViewController: AppliancesViewModelDelegate {
     func updateControllCenter(date: String,
                               local: String,
                               totalPower: String,
                               typeOfConnection: String,
-                              regionality: String?) {
+                              regionality: String?)
+    {
         contentView.updateControllCenter(date: date,
                                          local: local,
                                          totalPower: totalPower,

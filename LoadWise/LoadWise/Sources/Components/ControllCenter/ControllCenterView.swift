@@ -137,13 +137,13 @@ extension ControllCenter: ControllCenterProtocol {
         localLabel.text = local
         dateLabel.text = date
         
+        totalPowerTag.updateTag(text: totalPower)
+        typeTag.updateTag(text: typeOfConnection)
+        
         guard regionality != nil else {
             regionalityLabel.isHidden = true
             return
         }
         regionalityLabel.text = "Regionalidade: \(regionality ?? "")"
-        
-        totalPowerTag.updateTag(text: totalPower)
-        typeTag.updateTag(text: typeOfConnection)
     }
 }

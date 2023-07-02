@@ -1,5 +1,5 @@
 //
-//  EquipmentsViewModel.swift
+//  AppliancesViewModel.swift
 //  LoadWise
 //
 //  Created by Elisa Kalil on 02/07/23.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-class EquipmentsViewModel {
+class AppliancesViewModel {
     // MARK: PROPERTIES
-    weak var delegate: EquipmentsViewModelDelegate?
+    weak var delegate: AppliancesViewModelDelegate?
     
     private func getDate() -> String {
         let dateFormatter = DateFormatter()
@@ -31,7 +31,7 @@ class EquipmentsViewModel {
 
 }
 // MARK: EquipmentsViewModelProtocol
-extension EquipmentsViewModel: EquipmentsViewModelProtocol {
+extension AppliancesViewModel: AppliancesViewModelProtocol {
     func updateControllCenter(regionality: String?) {
         delegate?.updateControllCenter(date: getDate(),
                                        local: .santaCatarina,
