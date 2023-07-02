@@ -32,10 +32,11 @@ class EquipmentsViewModel {
 }
 // MARK: EquipmentsViewModelProtocol
 extension EquipmentsViewModel: EquipmentsViewModelProtocol {
-    func updateControllCenter() {
+    func updateControllCenter(regionality: String?) {
         delegate?.updateControllCenter(date: getDate(),
                                        local: .santaCatarina,
                                        totalPower: getTotalPower(),
-                                       typeOfConnection: getTypeOfConnection())
+                                       typeOfConnection: getTypeOfConnection(),
+                                       regionality: regionality)
     }
 }

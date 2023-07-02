@@ -9,7 +9,8 @@ import Foundation
 
 protocol EquipmentsViewModelDelegate: AnyObject {
     func updateControllCenter(date: String,
-                      local: String,
-                      totalPower: String,
-                      typeOfConnection: String)
+                              local: String,
+                              totalPower: String,
+                              typeOfConnection: String,
+                              regionality: String?)
 }

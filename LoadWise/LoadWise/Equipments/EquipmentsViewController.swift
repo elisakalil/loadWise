@@ -12,14 +12,16 @@ class EquipmentsViewController: UIViewController {
     
     // MARK: PROPERTIES
     private var viewModel: EquipmentsViewModelProtocol
+    private var parameters: EquipmentsParameters
     
     private let contentView: EquipmentsViewProtocol = {
         let view = EquipmentsView()
         return view
     }()
     
-    init(viewModel: EquipmentsViewModel) {
+    init(viewModel: EquipmentsViewModel, parameters: EquipmentsParameters) {
         self.viewModel = viewModel
+        self.parameters = parameters
         super.init(nibName: nil , bundle: nil)
         
         self.viewModel.delegate = self
@@ -34,7 +36,7 @@ class EquipmentsViewController: UIViewController {
         super.viewDidLoad()
                 
         view = contentView
-        viewModel.updateControllCenter()
+        viewModel.updateControllCenter(regionality: parameters.regionalityType)
     }
     
 }
@@ -44,11 +46,12 @@ extension EquipmentsViewController: EquipmentsViewModelDelegate {
     func updateControllCenter(date: String,
                               local: String,
                               totalPower: String,
-                              typeOfConnection: String)
-    {
+                              typeOfConnection: String,
+                              regionality: String?) {
         contentView.updateControllCenter(date: date,
                                          local: local,
                                          totalPower: totalPower,
-                                         typeOfConnection: typeOfConnection)
+                                         typeOfConnection: typeOfConnection,
+                                         regionality: regionality)
     }
 }

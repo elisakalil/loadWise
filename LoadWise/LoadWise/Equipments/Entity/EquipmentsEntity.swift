@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct EquipmentsEntity {
-    let regionalityType: String
+struct EquipmentsParameters {
+    let regionalityType: String?
 }

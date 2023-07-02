@@ -10,7 +10,8 @@ import UIKit
 
 protocol ControllCenterProtocol where Self: UIView {
     func updateControllCenter(date: String,
-                      local: String,
-                      totalPower: String,
-                      typeOfConnection: String)
+                              local: String,
+                              totalPower: String,
+                              typeOfConnection: String,
+                              regionality: String?)
 }

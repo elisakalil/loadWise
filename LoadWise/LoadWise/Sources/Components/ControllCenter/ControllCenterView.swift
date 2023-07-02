@@ -32,6 +32,15 @@ class ControllCenter: UIView {
         return label
     }()
     
+    private let regionalityLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .white
+        label.font = .boldSystemFont(ofSize: 12)
+        label.isHidden = false
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     private let totalPowerTitle: UILabel = {
         let label = UILabel()
         label.text = .totalPowerSelected
@@ -79,6 +88,8 @@ class ControllCenter: UIView {
         addSubview(separatorIcon)
         addSubview(dateLabel)
         
+        addSubview(regionalityLabel)
+        
         addSubview(totalPowerTitle)
         
         addSubview(totalPowerTag)
@@ -98,7 +109,10 @@ class ControllCenter: UIView {
             dateLabel.topAnchor.constraint(equalTo: topAnchor, constant: Metrics.Spacing.small),
             dateLabel.leadingAnchor.constraint(equalTo: separatorIcon.trailingAnchor, constant: Metrics.Spacing.tiny),
             
-            totalPowerTitle.topAnchor.constraint(equalTo: localLabel.bottomAnchor, constant: Metrics.Spacing.medium),
+            regionalityLabel.topAnchor.constraint(equalTo: localLabel.bottomAnchor, constant: Metrics.Spacing.tiny),
+            regionalityLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Metrics.Spacing.small),
+            
+            totalPowerTitle.topAnchor.constraint(equalTo: regionalityLabel.bottomAnchor, constant: Metrics.Spacing.medium),
             totalPowerTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Metrics.Spacing.small),
             
             totalPowerTag.topAnchor.constraint(equalTo: totalPowerTitle.bottomAnchor, constant: Metrics.Spacing.small),
@@ -114,9 +128,20 @@ class ControllCenter: UIView {
 //MARK: ControllCenterProtocol
 
 extension ControllCenter: ControllCenterProtocol {
-    func updateControllCenter(date: String, local: String, totalPower: String, typeOfConnection: String) {
+    func updateControllCenter(date: String,
+                              local: String,
+                              totalPower: String,
+                              typeOfConnection: String,
+                              regionality: String?)
+    {
         localLabel.text = local
         dateLabel.text = date
+        
+        guard regionality != nil else {
+            regionalityLabel.isHidden = true
+            return
+        }
+        regionalityLabel.text = "Regionalidade: \(regionality ?? "")"
         
         totalPowerTag.updateTag(text: totalPower)
         typeTag.updateTag(text: typeOfConnection)

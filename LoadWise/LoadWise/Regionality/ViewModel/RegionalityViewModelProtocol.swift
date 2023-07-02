@@ -11,4 +11,5 @@ protocol RegionalityViewModelProtocol: AnyObject {
     var delegate: RegionalityViewModelDelegate? { get set }
     
     func handleSelectedRegionality(with selectedRegionality: String)
+    func getSelectedRegionality() -> String?
 }

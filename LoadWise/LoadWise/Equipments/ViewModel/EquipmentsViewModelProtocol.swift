@@ -9,5 +9,5 @@ import Foundation
 
 protocol EquipmentsViewModelProtocol {
     var delegate: EquipmentsViewModelDelegate? { get set }
-    func updateControllCenter()
+    func updateControllCenter(regionality: String?)
 }

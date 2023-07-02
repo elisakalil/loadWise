@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class RegionalityViewModel {
     
@@ -24,11 +25,15 @@ class RegionalityViewModel {
 
 //MARK: RegionalityViewModelProtocol
 extension RegionalityViewModel: RegionalityViewModelProtocol {
+    func getSelectedRegionality() -> String? {
+        return regionality ?? nil
+    }
+    
     
     func handleSelectedRegionality(with selectedRegionality: String) {
-        guard regionality != nil,
-              regionality != selectedRegionality else {
+        guard regionality != selectedRegionality else {
            toggleRegionalitySelection(selectedRegionality: selectedRegionality)
+            regionality = nil
             return
         }
         toggleRegionalitySelection(selectedRegionality: selectedRegionality)

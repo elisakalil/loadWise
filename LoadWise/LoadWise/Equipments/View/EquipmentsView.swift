@@ -69,10 +69,16 @@ class EquipmentsView: UIView {
 //MARK: EquipmentsViewProtocol
 
 extension EquipmentsView: EquipmentsViewProtocol {
-    func updateControllCenter(date: String, local: String, totalPower: String, typeOfConnection: String) {
+    func updateControllCenter(date: String,
+                              local: String,
+                              totalPower: String,
+                              typeOfConnection: String,
+                              regionality: String?)
+    {
         controllCenter.updateControllCenter(date: date,
                                             local: local,
                                             totalPower: totalPower,
-                                            typeOfConnection: typeOfConnection)
+                                            typeOfConnection: typeOfConnection,
+                                            regionality: regionality)
     }
 }
