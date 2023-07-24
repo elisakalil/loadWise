@@ -141,7 +141,7 @@ extension ControllCenter: ControllCenterProtocol {
         typeTag.updateTag(text: typeOfConnection)
         
         guard regionality != nil else {
-            regionalityLabel.isHidden = true
+            regionalityLabel.text = "Regionalidade: Área urbana"
             return
         }
         regionalityLabel.text = "Regionalidade: \(regionality ?? "")"

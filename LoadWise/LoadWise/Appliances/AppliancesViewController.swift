@@ -10,18 +10,20 @@ import UIKit
 
 class AppliancesViewController: UIViewController {
     
-    // MARK: PROPERTIES
+    // MARK: PRIVATE PROPERTIES
     private var viewModel: AppliancesViewModelProtocol
     private var parameters: AppliancesParameters
     
-    private let contentView: AppliancesViewProtocol = {
-        let view = AppliancesView()
-        return view
-    }()
+    // MARK: PROPERTIES
+    var contentView: AppliancesViewProtocol
     
-    init(viewModel: AppliancesViewModel, parameters: AppliancesParameters) {
+    init(viewModel: AppliancesViewModel,
+         parameters: AppliancesParameters,
+         contentView: AppliancesViewProtocol)
+    {
         self.viewModel = viewModel
         self.parameters = parameters
+        self.contentView = contentView
         super.init(nibName: nil , bundle: nil)
         
         self.viewModel.delegate = self
@@ -35,8 +37,13 @@ class AppliancesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
                 
-        view = contentView
+        contentSetup()
         viewModel.updateControllCenter(regionality: parameters.regionalityType)
+    }
+    
+    private func contentSetup() {
+        view.addSubview(contentView)
+        contentView.bindFrameToSuperviewBounds()
     }
     
 }

@@ -37,7 +37,7 @@ class OnboardingView: UIView {
         return scrollView
     }()
     
-    private let contentScrollView: UIView = {
+    private let contentView: UIView = {
         let content = UIView()
         content.backgroundColor = .black
         content.translatesAutoresizingMaskIntoConstraints = false
@@ -91,11 +91,11 @@ class OnboardingView: UIView {
         addSubview(headerImageView)
         addSubview(scrollView)
                 
-        scrollView.addSubview(contentScrollView)
+        scrollView.addSubview(contentView)
         
-        contentScrollView.addSubview(headerTitleLabel)
-        contentScrollView.addSubview(descriptionLabel)
-        contentScrollView.addSubview(footer)
+        contentView.addSubview(headerTitleLabel)
+        contentView.addSubview(descriptionLabel)
+        contentView.addSubview(footer)
     }
     
     private func addConstraints() {
@@ -110,23 +110,23 @@ class OnboardingView: UIView {
             scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
             
-            contentScrollView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            contentScrollView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Metrics.Spacing.medium),
-            contentScrollView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Metrics.Spacing.small),
-            contentScrollView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Metrics.Spacing.medium),
+            contentView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Metrics.Spacing.small),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
                 
-            headerTitleLabel.topAnchor.constraint(equalTo: contentScrollView.topAnchor),
-            headerTitleLabel.leadingAnchor.constraint(equalTo: contentScrollView.leadingAnchor),
-            headerTitleLabel.trailingAnchor.constraint(equalTo: contentScrollView.trailingAnchor, constant: -Metrics.Spacing.giant),
+            headerTitleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
+            headerTitleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            headerTitleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Metrics.Spacing.giant),
             
             descriptionLabel.topAnchor.constraint(equalTo: headerTitleLabel.bottomAnchor, constant: Metrics.Spacing.medium),
-            descriptionLabel.leadingAnchor.constraint(equalTo: contentScrollView.leadingAnchor),
-            descriptionLabel.trailingAnchor.constraint(equalTo: contentScrollView.trailingAnchor),
+            descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             
             footer.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor),
-            footer.leadingAnchor.constraint(equalTo: contentScrollView.leadingAnchor),
-            footer.trailingAnchor.constraint(equalTo: contentScrollView.trailingAnchor),
-            footer.bottomAnchor.constraint(equalTo: contentScrollView.bottomAnchor)
+            footer.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            footer.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            footer.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
     }
     
@@ -152,7 +152,6 @@ class OnboardingView: UIView {
 //MARK: OnboardingViewProtocol
 
 extension OnboardingView: OnboardingViewProtocol {
-    
     func updateView() {
         headerTitleLabel.text = .loadBalancing
         footer.updateButton(with: .start)
