@@ -6,10 +6,15 @@
 //
 
 import Foundation
+import UIKit
 
 class AppliancesViewModel {
-    // MARK: PROPERTIES
+    // MARK: Public Initializers
     weak var delegate: AppliancesViewModelDelegate?
+    
+    // MARK: Private Initializers
+    private var totalPower: Int = 0
+    private var currentRegionality = ""
     
     private func getDate() -> String {
         let dateFormatter = DateFormatter()
@@ -22,21 +27,46 @@ class AppliancesViewModel {
     }
     
     private func getTotalPower() -> String {
-        return "12 kW"
+        return "\(totalPower) W"
     }
     
     private func getTypeOfConnection() -> String {
-        return RegionalityType.urbanSide.rawValue
+        if totalPower <= 15000 {
+            return "Monofásica"
+        } else if totalPower <= 25000 {
+            return "Bifásica"
+        } else { 
+            return "Trifásica"
+        }
     }
-
 }
 // MARK: EquipmentsViewModelProtocol
 extension AppliancesViewModel: AppliancesViewModelProtocol {
+    func calculateTotalPower(items: [AppliancesViewCellEntity]) {
+        totalPower = 0
+        
+        for item in items {
+            let power = item.power
+            let quantity = item.quantity
+            let powerForItem = power * quantity
+            totalPower += powerForItem
+        }
+        updateControllCenter(regionality: currentRegionality)
+    }
+    
+    
     func updateControllCenter(regionality: String?) {
+        
+        currentRegionality = regionality ?? .urbanSideTitle
+        
         delegate?.updateControllCenter(date: getDate(),
                                        local: .santaCatarina,
                                        totalPower: getTotalPower(),
                                        typeOfConnection: getTypeOfConnection(),
-                                       regionality: regionality)
+                                       regionality: currentRegionality)
+    }
+    
+    func getResults() -> ResultsParameters {
+        .init(regionality: currentRegionality, totalPower: "\(totalPower)", type: getTypeOfConnection())
     }
 }

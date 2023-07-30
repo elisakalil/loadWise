@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		695726082A48E215006F5A76 /* SelectorViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695726072A48E215006F5A76 /* SelectorViewProtocol.swift */; };
 		69589E512A49DC2A009E2267 /* RegionalityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69589E502A49DC2A009E2267 /* RegionalityType.swift */; };
-		69589E572A49FCF4009E2267 /* AppliancesEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69589E562A49FCF4009E2267 /* AppliancesEntity.swift */; };
+		69589E572A49FCF4009E2267 /* AppliancesEParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69589E562A49FCF4009E2267 /* AppliancesEParameters.swift */; };
 		69589E592A4A003F009E2267 /* RegionalityViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69589E582A4A003F009E2267 /* RegionalityViewDelegate.swift */; };
 		69589E5B2A4A0196009E2267 /* RegionalityViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69589E5A2A4A0196009E2267 /* RegionalityViewModelProtocol.swift */; };
 		69589E5E2A4A03D9009E2267 /* RegionalityViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69589E5D2A4A03D9009E2267 /* RegionalityViewModelDelegate.swift */; };
@@ -54,12 +54,18 @@
 		69B39F052A38E8250037724D /* FooterViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B39F042A38E8250037724D /* FooterViewDelegate.swift */; };
 		69C46EA92A48F76900A1031E /* RegionalityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C46EA82A48F76900A1031E /* RegionalityViewModel.swift */; };
 		69D5F0A52A48D92C00A50CC4 /* SelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D5F0A42A48D92C00A50CC4 /* SelectorView.swift */; };
+		69DB3FF22A75B2EB00DC312C /* AppliancesViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DB3FF12A75B2EB00DC312C /* AppliancesViewCellDelegate.swift */; };
+		69DB3FF52A76F08000DC312C /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DB3FF42A76F08000DC312C /* ResultsViewController.swift */; };
+		69DB3FF82A76F22F00DC312C /* ResultsParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DB3FF72A76F22F00DC312C /* ResultsParameters.swift */; };
+		69DB3FFB2A76F56200DC312C /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DB3FFA2A76F56200DC312C /* ResultsView.swift */; };
+		69DB3FFD2A76F62600DC312C /* ResultsViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DB3FFC2A76F62600DC312C /* ResultsViewProtocol.swift */; };
+		69DB3FFF2A76F65900DC312C /* ResultsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DB3FFE2A76F65900DC312C /* ResultsViewDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		695726072A48E215006F5A76 /* SelectorViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorViewProtocol.swift; sourceTree = "<group>"; };
 		69589E502A49DC2A009E2267 /* RegionalityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionalityType.swift; sourceTree = "<group>"; };
-		69589E562A49FCF4009E2267 /* AppliancesEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppliancesEntity.swift; sourceTree = "<group>"; };
+		69589E562A49FCF4009E2267 /* AppliancesEParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppliancesEParameters.swift; sourceTree = "<group>"; };
 		69589E582A4A003F009E2267 /* RegionalityViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionalityViewDelegate.swift; sourceTree = "<group>"; };
 		69589E5A2A4A0196009E2267 /* RegionalityViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionalityViewModelProtocol.swift; sourceTree = "<group>"; };
 		69589E5D2A4A03D9009E2267 /* RegionalityViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionalityViewModelDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +112,12 @@
 		69B39F042A38E8250037724D /* FooterViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterViewDelegate.swift; sourceTree = "<group>"; };
 		69C46EA82A48F76900A1031E /* RegionalityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionalityViewModel.swift; sourceTree = "<group>"; };
 		69D5F0A42A48D92C00A50CC4 /* SelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorView.swift; sourceTree = "<group>"; };
+		69DB3FF12A75B2EB00DC312C /* AppliancesViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppliancesViewCellDelegate.swift; sourceTree = "<group>"; };
+		69DB3FF42A76F08000DC312C /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		69DB3FF72A76F22F00DC312C /* ResultsParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsParameters.swift; sourceTree = "<group>"; };
+		69DB3FFA2A76F56200DC312C /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
+		69DB3FFC2A76F62600DC312C /* ResultsViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewProtocol.swift; sourceTree = "<group>"; };
+		69DB3FFE2A76F65900DC312C /* ResultsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,7 +165,7 @@
 		69589E552A49FCE2009E2267 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				69589E562A49FCF4009E2267 /* AppliancesEntity.swift */,
+				69589E562A49FCF4009E2267 /* AppliancesEParameters.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -227,6 +239,7 @@
 			children = (
 				69589E802A51E1BB009E2267 /* AppliancesViewCell.swift */,
 				696AC0692A6463A300BA8D91 /* AppliancesViewCellEntity.swift */,
+				69DB3FF12A75B2EB00DC312C /* AppliancesViewCellDelegate.swift */,
 			);
 			path = ViewCell;
 			sourceTree = "<group>";
@@ -289,6 +302,7 @@
 				69B39EDE2A3259A80037724D /* Onboarding */,
 				69B39EDC2A3236BB0037724D /* Regionality */,
 				69589E522A49FC7A009E2267 /* Appliances */,
+				69DB3FF32A76F05B00DC312C /* Results */,
 				69B39EC82A322BE90037724D /* AppDelegate.swift */,
 				69B39ECA2A322BE90037724D /* SceneDelegate.swift */,
 				69B39ED12A322BEA0037724D /* Assets.xcassets */,
@@ -406,6 +420,34 @@
 			path = Selector;
 			sourceTree = "<group>";
 		};
+		69DB3FF32A76F05B00DC312C /* Results */ = {
+			isa = PBXGroup;
+			children = (
+				69DB3FF92A76F54D00DC312C /* View */,
+				69DB3FF62A76F21900DC312C /* Entity */,
+				69DB3FF42A76F08000DC312C /* ResultsViewController.swift */,
+			);
+			path = Results;
+			sourceTree = "<group>";
+		};
+		69DB3FF62A76F21900DC312C /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				69DB3FF72A76F22F00DC312C /* ResultsParameters.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		69DB3FF92A76F54D00DC312C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				69DB3FFA2A76F56200DC312C /* ResultsView.swift */,
+				69DB3FFC2A76F62600DC312C /* ResultsViewProtocol.swift */,
+				69DB3FFE2A76F65900DC312C /* ResultsViewDelegate.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -479,9 +521,11 @@
 				69B39F032A38DE470037724D /* OnboardingViewDelegate.swift in Sources */,
 				69B39ECD2A322BE90037724D /* RegionalityViewController.swift in Sources */,
 				69B39EFF2A3683B20037724D /* FooterView.swift in Sources */,
+				69DB3FF52A76F08000DC312C /* ResultsViewController.swift in Sources */,
 				69589E762A51BF45009E2267 /* AppliancesViewModel.swift in Sources */,
 				69589E652A4A2666009E2267 /* AppliancesViewProtocol.swift in Sources */,
 				69589E602A4A25FF009E2267 /* AppliancesViewController.swift in Sources */,
+				69DB3FF22A75B2EB00DC312C /* AppliancesViewCellDelegate.swift in Sources */,
 				695726082A48E215006F5A76 /* SelectorViewProtocol.swift in Sources */,
 				696AC0662A6449F700BA8D91 /* AppliancesTableViewDataSource.swift in Sources */,
 				69B39EE62A3263390037724D /* Metrics.swift in Sources */,
@@ -493,7 +537,7 @@
 				69B39ECB2A322BE90037724D /* SceneDelegate.swift in Sources */,
 				69589E7C2A51C367009E2267 /* Labels.swift in Sources */,
 				69589E5E2A4A03D9009E2267 /* RegionalityViewModelDelegate.swift in Sources */,
-				69589E572A49FCF4009E2267 /* AppliancesEntity.swift in Sources */,
+				69589E572A49FCF4009E2267 /* AppliancesEParameters.swift in Sources */,
 				696AC0682A644A6A00BA8D91 /* AppliancesTableViewDataSourceProtocol.swift in Sources */,
 				69589E5B2A4A0196009E2267 /* RegionalityViewModelProtocol.swift in Sources */,
 				696AC0632A630DE400BA8D91 /* UIView+Ext.swift in Sources */,
@@ -503,6 +547,7 @@
 				69589E8A2A5204F6009E2267 /* AppliancesViewDelegate.swift in Sources */,
 				69589E742A4B6B4F009E2267 /* TagViewProtocol.swift in Sources */,
 				69589E512A49DC2A009E2267 /* RegionalityType.swift in Sources */,
+				69DB3FFF2A76F65900DC312C /* ResultsViewDelegate.swift in Sources */,
 				69B39EE32A325A410037724D /* OnboardingView.swift in Sources */,
 				69B39EEA2A3637B70037724D /* RegionalityView.swift in Sources */,
 				69D5F0A52A48D92C00A50CC4 /* SelectorView.swift in Sources */,
@@ -514,11 +559,14 @@
 				69589E792A51BF70009E2267 /* AppliancesViewModelProtocol.swift in Sources */,
 				69589E862A51FEB0009E2267 /* AppliancesStore.swift in Sources */,
 				69589E812A51E1BB009E2267 /* AppliancesViewCell.swift in Sources */,
+				69DB3FF82A76F22F00DC312C /* ResultsParameters.swift in Sources */,
 				69589E882A51FF38009E2267 /* AppliancesModel.swift in Sources */,
 				69B39EE82A326C980037724D /* OnboardingViewProtocol.swift in Sources */,
+				69DB3FFD2A76F62600DC312C /* ResultsViewProtocol.swift in Sources */,
 				69589E7E2A51C9A1009E2267 /* AppliancesViewModelDelegate.swift in Sources */,
 				69B39EF62A36444F0037724D /* CardViewProtocol.swift in Sources */,
 				69589E6D2A4B493B009E2267 /* ControllCenterProtocol.swift in Sources */,
+				69DB3FFB2A76F56200DC312C /* ResultsView.swift in Sources */,
 				69B39EE02A3259CF0037724D /* OnboardingViewController.swift in Sources */,
 				69589E682A4A36D3009E2267 /* ControllCenterView.swift in Sources */,
 			);

@@ -10,11 +10,11 @@ import UIKit
 
 class AppliancesViewController: UIViewController {
     
-    // MARK: PRIVATE PROPERTIES
+    // MARK: Private Initializers
     private var viewModel: AppliancesViewModelProtocol
     private var parameters: AppliancesParameters
     
-    // MARK: PROPERTIES
+    // MARK: Public Initializers
     var contentView: AppliancesViewProtocol
     
     init(viewModel: AppliancesViewModel,
@@ -27,6 +27,7 @@ class AppliancesViewController: UIViewController {
         super.init(nibName: nil , bundle: nil)
         
         self.viewModel.delegate = self
+        self.contentView.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -38,7 +39,7 @@ class AppliancesViewController: UIViewController {
         super.viewDidLoad()
                 
         contentSetup()
-        viewModel.updateControllCenter(regionality: parameters.regionalityType)
+        updateControlCenter()
     }
     
     private func contentSetup() {
@@ -46,8 +47,23 @@ class AppliancesViewController: UIViewController {
         contentView.bindFrameToSuperviewBounds()
     }
     
+    private func updateControlCenter() {
+        viewModel.updateControllCenter(regionality: parameters.regionalityType)
+    }
 }
 
+//MARK: AppliancesViewDelegate
+extension AppliancesViewController: AppliancesViewDelegate {
+    func calculateTotalPower(items: [AppliancesViewCellEntity]) {
+        viewModel.calculateTotalPower(items: items)
+    }
+    
+    func buttonAction() {
+        let results = viewModel.getResults()
+        let nextVC = ResultsViewController(parameters: results)
+        navigationController?.pushViewController(nextVC, animated: true)
+    }
+}
 // MARK: EquipmentsViewController
 extension AppliancesViewController: AppliancesViewModelDelegate {
     func updateControllCenter(date: String,

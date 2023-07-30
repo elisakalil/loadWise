@@ -34,7 +34,7 @@ class AppliancesView: UIView {
         return scrollView
     }()
     
-    private let contentView: UIView = {
+    private let containerView: UIView = {
         let content = UIView()
         content.backgroundColor = .clear
         content.translatesAutoresizingMaskIntoConstraints = false
@@ -54,17 +54,17 @@ class AppliancesView: UIView {
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = true
         tableView.indicatorStyle = .white
-        tableView.rowHeight = 60 + 10
-        tableView.rowHeight = UITableView.automaticDimension
         tableView.register(AppliancesViewCell.self, forCellReuseIdentifier: "appliancesCell")
         tableView.translatesAutoresizingMaskIntoConstraints  = false
         return tableView
     }()
     
-    // MARK: INITIALIZERS
+    // MARK: Public Initializers
     weak var delegate: AppliancesViewDelegate?
+    var previousDataModel: AppliancesViewCellEntity?
     var dataSource: AppliancesTableViewDataSource
     
+    // MARK: Private Initializers
     private var items: [AppliancesViewCellEntity] = []
     
     init(dataSource: AppliancesTableViewDataSource) {
@@ -81,7 +81,7 @@ class AppliancesView: UIView {
         delegate?.buttonAction()
     }
     
-    // MARK: PRIVATE FUNCTIONS
+    // MARK: Private Functions
     private func setup() {
         backgroundColor = .black
         footer.updateButton(with: .proceed)
@@ -93,19 +93,24 @@ class AppliancesView: UIView {
     
     private func setupTable() {
         let entities = AppliancesStore.appliances.map({dataSource.convertAppliancesModelToEntity(withModel: $0)})
+        items = entities
+        
         dataSource.items = entities
+        dataSource.dataSourceDelegate = self
         
         tableView.dataSource = dataSource
         tableView.delegate = dataSource
-//        tableView.allowsSelection = false
+        
+        tableView.reloadData()
     }
     
     private func buildViewHierarchy() {
         addSubview(headerTitleLabel)
         addSubview(controllCenter)
         addSubview(scrollView)
-        addSubview(contentView)
+        addSubview(containerView)
         addSubview(tableView)
+        addSubview(footer)
     }
     
     private func addConstraints() {
@@ -123,16 +128,25 @@ class AppliancesView: UIView {
             scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
             
-            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            contentView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Metrics.Spacing.medium),
-            contentView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Metrics.Spacing.medium),
-            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            containerView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            containerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Metrics.Spacing.medium),
+            containerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Metrics.Spacing.medium),
+            containerView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             
-            tableView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            tableView.topAnchor.constraint(equalTo: containerView.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+//            tableView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            
+            footer.topAnchor.constraint(equalTo: tableView.bottomAnchor),
+            footer.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            footer.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            footer.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
         ])
+    }
+    
+    private func getTotalPower() {
+        
     }
 }
 
@@ -146,7 +160,7 @@ extension AppliancesView: AppliancesViewProtocol {
     {
         controllCenter.updateControllCenter(date: date,
                                             local: local,
-                                            totalPower: totalPower,
+                                            totalPower: "\(totalPower)",
                                             typeOfConnection: typeOfConnection,
                                             regionality: regionality)
     }
@@ -154,3 +168,33 @@ extension AppliancesView: AppliancesViewProtocol {
 
 //MARK: FooterViewDelegate
 extension AppliancesView: FooterViewDelegate { }
+
+//MARK: AppliancesTableViewDataSourceDelegate
+extension AppliancesView: AppliancesTableViewDataSourceDelegate {
+    func increaseButtonTapped(for dataModel: AppliancesViewCellEntity) {
+        if let index = dataSource.items.firstIndex(where: { $0 === dataModel }) {
+            dataSource.items[index].quantity += 1
+            
+            let indexPath = IndexPath(row: index, section: 0)
+            tableView.reloadRows(at: [indexPath], with: .none)
+            delegate?.calculateTotalPower(items: items)
+        }
+    }
+    
+    func decreaseButtonTapped(for dataModel: AppliancesViewCellEntity) {
+        if let index = dataSource.items.firstIndex(where: { $0 === dataModel }) {
+            if dataSource.items[index].quantity > 0 {
+                dataSource.items[index].quantity -= 1
+                
+                let indexPath = IndexPath(row: index, section: 0)
+                tableView.reloadRows(at: [indexPath], with: .none)
+                
+                delegate?.calculateTotalPower(items: items)
+            }
+        }
+    }
+}
+
+extension AppliancesView: AppliancesViewCellDelegate {
+    
+}

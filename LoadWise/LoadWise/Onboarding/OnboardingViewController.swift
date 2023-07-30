@@ -10,15 +10,13 @@ import UIKit
 
 class OnboardingViewController: UIViewController {
     
-    // MARK: PROPERTIES
-    
+    // MARK: Properties
     let contentView: OnboardingViewProtocol = {
         let view = OnboardingView()
         return view
     }()
     
-    //MARK: LIFE CYCLE
-    
+    //MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 
 protocol AppliancesViewProtocol where Self: UIView {
+    var delegate: AppliancesViewDelegate? { get set }
+    
     func updateControllCenter(date: String,
                               local: String,
                               totalPower: String,

@@ -9,12 +9,14 @@ import UIKit
 
 class AppliancesViewCellEntity {
     var title: String
-    var power: String
+    var power: Int
     var icon: String
+    var quantity: Int
     
-    init(title: String, power: String, icon: String) {
+    init(title: String, power: Int, icon: String, quantity: Int) {
         self.title = title
         self.power = power
         self.icon = icon
+        self.quantity = quantity
     }
 }

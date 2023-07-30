@@ -27,6 +27,7 @@ class AppliancesViewCell: UITableViewCell {
         let label = UILabel()
         label.textColor = .white
         label.font = .boldSystemFont(ofSize: 15)
+        label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -54,6 +55,7 @@ class AppliancesViewCell: UITableViewCell {
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .gray
         button.layer.cornerRadius = 5
+        button.addTarget(self, action: #selector(increaseButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -64,10 +66,14 @@ class AppliancesViewCell: UITableViewCell {
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .gray
         button.layer.cornerRadius = 5
+        button.addTarget(self, action: #selector(decreaseButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-
+    
+    private var currentQuantityValue = 0
+    var dataModel: AppliancesViewCellEntity?
+    weak var dataSourceDelegate: AppliancesTableViewDataSourceDelegate?
     
     // MARK: PROPERTIES
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -81,13 +87,19 @@ class AppliancesViewCell: UITableViewCell {
     }
     
     @objc func increaseButtonTapped() {
-        let currentValue = Int(quantityLabel.text ?? "0") ?? 0
-        quantityLabel.text = "\(currentValue + 1)"
+        if let dataModel = dataModel {
+            dataSourceDelegate?.increaseButtonTapped(for: dataModel)
+        }
     }
     
     @objc func decreaseButtonTapped() {
-        let currentValue = Int(quantityLabel.text ?? "0") ?? 0
-        quantityLabel.text = "\(max(0, currentValue - 1))"
+        if let dataModel = dataModel {
+            dataSourceDelegate?.decreaseButtonTapped(for: dataModel)
+        }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
     }
     
     // MARK: Private Methods
@@ -95,19 +107,16 @@ class AppliancesViewCell: UITableViewCell {
         backgroundColor = .clear
         buildHierarchy()
         setupConstraints()
-        
-        increaseButton.addTarget(self, action: #selector(increaseButtonTapped), for: .touchUpInside)
-        decreaseButton.addTarget(self, action: #selector(decreaseButtonTapped), for: .touchUpInside)
     }
     
     private func buildHierarchy() {
-        addSubview(storageView)
-                storageView.addSubview(icon)
-                storageView.addSubview(titleLabel)
-                storageView.addSubview(powerDescriptionLabel)
-                storageView.addSubview(quantityLabel)
-                storageView.addSubview(increaseButton)
-                storageView.addSubview(decreaseButton)
+        contentView.addSubview(storageView)
+        storageView.addSubview(icon)
+        storageView.addSubview(titleLabel)
+        storageView.addSubview(powerDescriptionLabel)
+        storageView.addSubview(quantityLabel)
+        storageView.addSubview(increaseButton)
+        storageView.addSubview(decreaseButton)
     }
     
     private func setupConstraints() {
@@ -125,6 +134,7 @@ class AppliancesViewCell: UITableViewCell {
             
             titleLabel.topAnchor.constraint(equalTo: storageView.topAnchor, constant: 15),
             titleLabel.leadingAnchor.constraint(equalTo: icon.trailingAnchor, constant: Metrics.Spacing.tiny),
+            titleLabel.widthAnchor.constraint(equalToConstant: 200),
             
             powerDescriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: Metrics.Spacing.tiny),
             powerDescriptionLabel.leadingAnchor.constraint(equalTo: icon.trailingAnchor, constant: Metrics.Spacing.tiny),
@@ -148,13 +158,15 @@ class AppliancesViewCell: UITableViewCell {
     // MARK: Setup Methods
     
     public func setDataCell(withData data: AppliancesViewCellEntity) {
+        dataModel = data
+        
         icon.image = UIImage(named: data.icon)
         titleLabel.text = data.title
-        powerDescriptionLabel.text = data.power
+        powerDescriptionLabel.text = "\(data.power)"
+        quantityLabel.text = "\(data.quantity)"
         
         increaseButton.isUserInteractionEnabled = true
         decreaseButton.isUserInteractionEnabled = true
                     
-        self.layoutIfNeeded()
     }
 }

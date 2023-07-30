@@ -20,7 +20,7 @@ public extension String {
     static let selectYourEquipments = "Selecione os equipamentos da sua casa"
     static let santaCatarina = "Santa Catarina"
     static let totalPowerSelected = "Potência total selecionada"
-    
+        
     static let loadBalancing = "Dimensionamento de carga"
     static let onboarding = """
 O dimensionamento de carga é um processo que consiste em determinar a capacidade necessária para suprir a demanda de energia de um determinado sistema elétrico: uma residência, prédio comercial, indústrias ou qualquer outro tipo de estrutura que requeira fornecimento de energia elétrica.
