@@ -33,6 +33,9 @@ class RegionalityViewController: UIViewController {
         view = contentView
         contentView.delegate = self
         contentView.updateView()
+        
+        navigationController?.navigationBar.barTintColor = .black
+        navigationController?.navigationBar.tintColor = .white
     }
 }
 

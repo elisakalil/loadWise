@@ -88,54 +88,51 @@ class OnboardingView: UIView {
     }
     
     private func buildViewHierarchy() {
-        addSubview(headerImageView)
         addSubview(scrollView)
+        addSubview(footer)
                 
         scrollView.addSubview(contentView)
         
+        contentView.addSubview(headerImageView)
         contentView.addSubview(headerTitleLabel)
         contentView.addSubview(descriptionLabel)
-        contentView.addSubview(footer)
     }
     
     private func addConstraints() {
         NSLayoutConstraint.activate([
-            headerImageView.topAnchor.constraint(equalTo: topAnchor),
-            headerImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            headerImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            headerImageView.heightAnchor.constraint(equalToConstant: Metrics.ImageSize.heigth),
-            
-            scrollView.topAnchor.constraint(equalTo: headerImageView.bottomAnchor, constant: Metrics.Spacing.large),
+            scrollView.topAnchor.constraint(equalTo: topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: footer.topAnchor),
+            
+            headerImageView.heightAnchor.constraint(equalToConstant: Metrics.ImageSize.heigth),
             
             contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            contentView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Metrics.Spacing.medium),
-            contentView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Metrics.Spacing.small),
+            contentView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            contentView.leadingAnchor.constraint(equalTo: leadingAnchor),
             contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            
+            headerImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            headerImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            headerImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
                 
-            headerTitleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
-            headerTitleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            headerTitleLabel.topAnchor.constraint(equalTo: headerImageView.bottomAnchor, constant: Metrics.Spacing.medium),
+            headerTitleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Metrics.Spacing.medium),
             headerTitleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Metrics.Spacing.giant),
             
             descriptionLabel.topAnchor.constraint(equalTo: headerTitleLabel.bottomAnchor, constant: Metrics.Spacing.medium),
-            descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Metrics.Spacing.medium),
+            descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Metrics.Spacing.medium),
+            descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             
-            footer.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor),
-            footer.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            footer.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            footer.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            footer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Metrics.Spacing.medium),
+            footer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Metrics.Spacing.medium),
+            footer.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
     }
     
     private func setDescriptionLabelFontIfCould() {
-        if let montserratFont = UIFont(name: "Montserrat", size: Metrics.Font.small) {
-            descriptionLabel.font = montserratFont
-        } else {
-            descriptionLabel.font = UIFont.systemFont(ofSize: Metrics.Font.small)
-        }
+        descriptionLabel.font = UIFont.systemFont(ofSize: Metrics.Font.small)
     }
     
     private func setDescriptionAttributeString() {

@@ -12,6 +12,7 @@ class ResultsViewController: UIViewController {
     
     // MARK: Private Initializers
     private var parameters: ResultsParameters
+    private let viewModel: ResultsViewModelProtocol
     
     // MARK: Public Initializers
     var contentView: ResultsViewProtocol = {
@@ -19,9 +20,10 @@ class ResultsViewController: UIViewController {
         return view
     }()
     
-    init(parameters: ResultsParameters)
+    init(parameters: ResultsParameters, viewModel: ResultsViewModelProtocol)
     {
         self.parameters = parameters
+        self.viewModel = viewModel
         super.init(nibName: nil , bundle: nil)
     }
     
@@ -34,13 +36,25 @@ class ResultsViewController: UIViewController {
         super.viewDidLoad()
                 
         contentSetup()
+        updateView()
     }
     
     private func contentSetup() {
         contentView.delegate = self
-        
         view = contentView
-        contentView.updateView(with: parameters.totalPower, with: nil)
+    }
+    
+    private func updateView() {
+        guard let totalPower = Int(parameters.totalPower),
+              totalPower > 0 else {
+            contentView.updateView(with: .addEquipmentsTitle, with: .addEquipmentsDescription, with: nil)
+            return
+        }
+        
+        let title = viewModel.getTitle(with: totalPower)
+        let description = viewModel.getDescription(with: totalPower)
+        let type = viewModel.getType(with: totalPower)
+        contentView.updateView(with: title, with: description, with: type)
     }
 }
 

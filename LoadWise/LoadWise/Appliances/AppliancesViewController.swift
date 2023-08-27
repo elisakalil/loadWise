@@ -60,7 +60,8 @@ extension AppliancesViewController: AppliancesViewDelegate {
     
     func buttonAction() {
         let results = viewModel.getResults()
-        let nextVC = ResultsViewController(parameters: results)
+        let viewModel = ResultsViewModel()
+        let nextVC = ResultsViewController(parameters: results, viewModel: viewModel)
         navigationController?.pushViewController(nextVC, animated: true)
     }
 }

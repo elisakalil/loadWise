@@ -10,18 +10,6 @@ import UIKit
 
 class AppliancesView: UIView {
     
-    private let headerTitleLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .left
-        label.lineBreakMode = .byWordWrapping
-        label.numberOfLines = 0
-        label.textColor = .white
-        label.font = UIFont.boldSystemFont(ofSize: 40)
-        label.text = .selectYourEquipments
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
     private let controllCenter: ControllCenterProtocol = {
         let card = ControllCenter()
         card.translatesAutoresizingMaskIntoConstraints = false
@@ -30,6 +18,8 @@ class AppliancesView: UIView {
     
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
+        scrollView.showsVerticalScrollIndicator = true
+        scrollView.indicatorStyle = .white
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     }()
@@ -52,8 +42,7 @@ class AppliancesView: UIView {
         let tableView = UITableView()
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
-        tableView.showsVerticalScrollIndicator = true
-        tableView.indicatorStyle = .white
+        tableView.showsVerticalScrollIndicator = false
         tableView.register(AppliancesViewCell.self, forCellReuseIdentifier: "appliancesCell")
         tableView.translatesAutoresizingMaskIntoConstraints  = false
         return tableView
@@ -105,48 +94,41 @@ class AppliancesView: UIView {
     }
     
     private func buildViewHierarchy() {
-        addSubview(headerTitleLabel)
-        addSubview(controllCenter)
         addSubview(scrollView)
-        addSubview(containerView)
-        addSubview(tableView)
         addSubview(footer)
+
+        scrollView.addSubview(containerView)
+        
+        containerView.addSubview(controllCenter)
+        containerView.addSubview(tableView)
     }
-    
+
     private func addConstraints() {
         NSLayoutConstraint.activate([
-            headerTitleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: Metrics.Spacing.medium),
-            headerTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Metrics.Spacing.medium),
-            headerTitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Metrics.Spacing.medium),
-            
-            controllCenter.topAnchor.constraint(equalTo: headerTitleLabel.bottomAnchor, constant: Metrics.Spacing.medium),
-            controllCenter.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Metrics.Spacing.medium),
-            controllCenter.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Metrics.Spacing.medium),
-            
-            scrollView.topAnchor.constraint(equalTo: controllCenter.bottomAnchor, constant: Metrics.Spacing.medium),
+            scrollView.topAnchor.constraint(equalTo: topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: footer.topAnchor),
             
             containerView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             containerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Metrics.Spacing.medium),
             containerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Metrics.Spacing.medium),
             containerView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             
-            tableView.topAnchor.constraint(equalTo: containerView.topAnchor),
+            controllCenter.topAnchor.constraint(equalTo: containerView.topAnchor, constant: Metrics.Spacing.small),
+            controllCenter.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            controllCenter.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            
+            tableView.topAnchor.constraint(equalTo: controllCenter.bottomAnchor, constant: Metrics.Spacing.medium),
             tableView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-//            tableView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            tableView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
             
-            footer.topAnchor.constraint(equalTo: tableView.bottomAnchor),
-            footer.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            footer.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            footer.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
+            footer.topAnchor.constraint(equalTo: containerView.bottomAnchor),
+            footer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Metrics.Spacing.medium),
+            footer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Metrics.Spacing.medium),
+            footer.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
-    }
-    
-    private func getTotalPower() {
-        
     }
 }
 
@@ -193,8 +175,4 @@ extension AppliancesView: AppliancesTableViewDataSourceDelegate {
             }
         }
     }
-}
-
-extension AppliancesView: AppliancesViewCellDelegate {
-    
 }

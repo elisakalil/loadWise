@@ -11,7 +11,7 @@ import UIKit
 class AppliancesViewCell: UITableViewCell {
     private let storageView: UIView = {
         let view = UIView()
-        view.backgroundColor = .darkGray
+        view.backgroundColor = .black
         view.layer.cornerRadius = 8
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -162,7 +162,7 @@ class AppliancesViewCell: UITableViewCell {
         
         icon.image = UIImage(named: data.icon)
         titleLabel.text = data.title
-        powerDescriptionLabel.text = "\(data.power)"
+        powerDescriptionLabel.text = "\(data.power) W"
         quantityLabel.text = "\(data.quantity)"
         
         increaseButton.isUserInteractionEnabled = true

@@ -23,6 +23,8 @@ class OnboardingViewController: UIViewController {
         contentView.delegate = self
         
         view = contentView
+        view.backgroundColor = .black
+        navigationController?.navigationBar.barTintColor = .black
         contentView.updateView()
     }
 }

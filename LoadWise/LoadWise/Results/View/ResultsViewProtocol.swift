@@ -11,6 +11,5 @@ import UIKit
 protocol ResultsViewProtocol where Self: UIView {
     var delegate: ResultsViewDelegate? { get set }
     
-    func updateView(with totalPower: String,
-                    with missingPower: String?)
+    func updateView(with title: String, with description: String?, with typeDescription: String?)
 }

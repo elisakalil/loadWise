@@ -21,20 +21,14 @@ class RegionalityView: UIView {
         return label
     }()
     
-    private let scrollView: UIScrollView = {
-        let scroll = UIScrollView()
-        scroll.showsVerticalScrollIndicator = true
-        scroll.indicatorStyle = .white
-        scroll.translatesAutoresizingMaskIntoConstraints = false
-        return scroll
-    }()
-    
-    private let stackView: UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .vertical
-        stack.spacing = Metrics.Spacing.medium
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        return stack
+    private let contentStackView: UIStackView = {
+        let content = UIStackView()
+        content.backgroundColor = .black
+        content.alignment = .center
+        content.axis = .vertical
+        content.spacing = Metrics.Spacing.small
+        content.translatesAutoresizingMaskIntoConstraints = false
+        return content
     }()
     
     private let countrysideCard: CardViewProtocol = {
@@ -49,7 +43,7 @@ class RegionalityView: UIView {
         return card
     }()
     
-    private let footer: FooterViewProtocol = {
+    private lazy var footer: FooterView = {
         let footer = FooterView()
         footer.button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         footer.translatesAutoresizingMaskIntoConstraints = false
@@ -85,31 +79,31 @@ class RegionalityView: UIView {
     }
     
     private func buildViewHierarchy() {
+        
         addSubview(headerTitleLabel)
-        addSubview(scrollView)
-        
-        scrollView.addSubview(stackView)
-        
-        stackView.addArrangedSubview(countrysideCard)
-        stackView.addArrangedSubview(urbanCard)
-        stackView.addArrangedSubview(footer)
+        addSubview(footer)
+
+        addSubview(urbanCard)
+        addSubview(countrysideCard)
     }
     
     private func addConstraints() {
         NSLayoutConstraint.activate([
-            headerTitleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: Metrics.Spacing.medium),
-            headerTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Metrics.Spacing.medium),
-            headerTitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Metrics.Spacing.medium),
+            headerTitleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: Metrics.Spacing.large),
+            headerTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Metrics.Spacing.large),
+            headerTitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Metrics.Spacing.large),
+                
+            countrysideCard.topAnchor.constraint(equalTo: headerTitleLabel.bottomAnchor, constant: Metrics.Spacing.bigger),
+            countrysideCard.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Metrics.Spacing.medium),
+            countrysideCard.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Metrics.Spacing.medium),
             
-            scrollView.topAnchor.constraint(equalTo: headerTitleLabel.bottomAnchor, constant: Metrics.Spacing.medium),
-            scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            urbanCard.topAnchor.constraint(equalTo: countrysideCard.bottomAnchor, constant: Metrics.Spacing.medium),
+            urbanCard.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Metrics.Spacing.medium),
+            urbanCard.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Metrics.Spacing.medium),
             
-            stackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: Metrics.Spacing.medium),
-            stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Metrics.Spacing.large),
-            stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Metrics.Spacing.large),
-            stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
+            footer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Metrics.Spacing.medium),
+            footer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Metrics.Spacing.medium),
+            footer.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
     }
     
@@ -153,10 +147,12 @@ extension RegionalityView: RegionalityViewProtocol {
         countrysideCard.updateCardView(backgroundImageName: "countryside-background",
                                        descriptionImage: "florest",
                                        descriptionText: .countySideDescription,
+                                       resumeText: .countySideResume,
                                        title: .countySideTitle)
         urbanCard.updateCardView(backgroundImageName: "urbanArea-background",
                                  descriptionImage: "urbanArea",
                                  descriptionText: .urbanSideDescription,
+                                 resumeText: .urbanSideResume,
                                  title: .urbanSideTitle)
         
         footer.updateButton(with: .proceed)

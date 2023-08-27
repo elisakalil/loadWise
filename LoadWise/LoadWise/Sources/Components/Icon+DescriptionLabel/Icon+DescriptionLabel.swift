@@ -20,7 +20,7 @@ class IconAndDescriptionLabel: UIView {
         let label = UILabel()
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.font = .systemFont(ofSize: 11)
+        label.font = .systemFont(ofSize: 9)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

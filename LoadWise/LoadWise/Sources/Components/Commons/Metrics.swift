@@ -30,7 +30,7 @@ public enum Metrics {
     public enum ImageSize {
         public static let heigth: CGFloat = 275
         public static let width: CGFloat = 200
-        public static let backgroundCardHeigth: CGFloat = 260
+        public static let backgroundCardHeigth: CGFloat = 210
         public static let backgroundCardWidth: CGFloat = 188
         public static let descriptionCardHeigth: CGFloat = 160
         public static let descriptionCardcardWidth: CGFloat = 186
@@ -40,6 +40,7 @@ public enum Metrics {
         public static let none: CGFloat = 0
         public static let nano: CGFloat = 1
         public static let tiny: CGFloat = 8
+        public static let verySmall: CGFloat = 12.5
         public static let small: CGFloat = 16
         public static let medium: CGFloat = 18
         public static let large: CGFloat = 27
