@@ -9,6 +9,5 @@ import Foundation
 import UIKit
 
 protocol FooterViewProtocol where Self: UIView {
-    
     func updateButton(with text: String)
 }

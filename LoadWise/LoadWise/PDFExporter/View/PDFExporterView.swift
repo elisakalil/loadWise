@@ -21,7 +21,6 @@ class PDFExporterView: UIView, PDFExporterViewProtocol {
         let separator = UILabel()
         separator.backgroundColor = .white
         separator.translatesAutoresizingMaskIntoConstraints = false
-        separator.heightAnchor.constraint(equalToConstant: 1)
         return separator
     }()
     

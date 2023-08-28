@@ -95,6 +95,7 @@ extension AppliancesViewController: AppliancesViewDelegate {
         navigationController?.pushViewController(nextVC, animated: true)
     }
 }
+
 // MARK: EquipmentsViewController
 extension AppliancesViewController: AppliancesViewModelDelegate {
     func updateControllCenter(date: String,

@@ -1,5 +1,5 @@
 //
-//  AppliancesEntity.swift
+//  AppliancesParameters.swift
 //  LoadWise
 //
 //  Created by Elisa Kalil on 26/06/23.

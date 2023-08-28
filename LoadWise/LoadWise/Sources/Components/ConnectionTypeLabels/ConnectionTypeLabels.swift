@@ -32,8 +32,6 @@ class ConnectionTypeLabels: UIView {
         return icon
     }()
     
-    
-    
     // MARK: INITIALIZERS
     
     init() {
