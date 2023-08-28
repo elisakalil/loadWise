@@ -8,14 +8,8 @@
 import Foundation
 import UIKit
 
-class ResultsViewModel {
-    
-    // MARK: Public Initializers
-//    weak var delegate: ResultsViewModelDelegate?
-    
-    // MARK: Private Initializers
-    
-}
+class ResultsViewModel { }
+
 // MARK: EquipmentsViewModelProtocol
 extension ResultsViewModel: ResultsViewModelProtocol {
     func getTitle(with totalPower: Int) -> String {
@@ -38,15 +32,17 @@ extension ResultsViewModel: ResultsViewModelProtocol {
         } else if totalPower < 15000 {
             let missingPower = 15000 - totalPower
 
-            return "Para ligações do tipo monofásico, é possível solicitar até 15 kW sem custos adicionais. Caso queira, volte e adicione mais \(missingPower) Watts em equipamentos à sua lista."
+            return "Para ligações do tipo monofásica, é possível solicitar até 15 kW sem custos adicionais. Caso queira, volte e adicione mais \(missingPower) Watts em equipamentos à sua lista."
         } else if totalPower < 25000 {
             let missingPower = 25000 - totalPower
 
-            return "Para ligações do tipo bifásico, é possível solicitar até 25 kW sem custos adicionais. Caso queira, volte e adicione mais \(missingPower) Watts em equipamentos à sua lista."
-        } else {
+            return "Para ligações do tipo bifásica, é possível solicitar até 25 kW sem custos adicionais. Caso queira, volte e adicione mais \(missingPower) Watts em equipamentos à sua lista."
+        } else if totalPower < 65000 {
             let missingPower = 75000 - totalPower
 
-            return "Para ligações do tipo trifásico, é possível solicitar até 75 kW sem custos adicionais. Caso queira, volte e adicione mais \(missingPower) Watts em equipamentos à sua lista."
+            return "Para ligações do tipo trifásica, é possível solicitar até 75 kW sem custos adicionais. Caso queira, volte e adicione mais \(missingPower) Watts em equipamentos à sua lista."
+        } else {
+            return "Atenção, deverá ser justificada a necessidade por meio do cálculo da demanda e documento de responsabilidade técnica por profissional habilitado via sistema PEP."
         }
     }
 }

@@ -38,6 +38,8 @@
 		697331982A771A3E008F3177 /* ResultsViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697331972A771A3E008F3177 /* ResultsViewModelDelegate.swift */; };
 		6973319B2A788FCF008F3177 /* TagWithIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6973319A2A788FCF008F3177 /* TagWithIconView.swift */; };
 		6973319D2A788FE2008F3177 /* TagWithIconViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6973319C2A788FE2008F3177 /* TagWithIconViewProtocol.swift */; };
+		698E64E12A9B994A00F41F0A /* PDFExporterViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698E64E02A9B994A00F41F0A /* PDFExporterViewProtocol.swift */; };
+		698E64E32A9B9A2800F41F0A /* AppliancesEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698E64E22A9B9A2800F41F0A /* AppliancesEntity.swift */; };
 		69B39EC92A322BE90037724D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B39EC82A322BE90037724D /* AppDelegate.swift */; };
 		69B39ECB2A322BE90037724D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B39ECA2A322BE90037724D /* SceneDelegate.swift */; };
 		69B39ECD2A322BE90037724D /* RegionalityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B39ECC2A322BE90037724D /* RegionalityViewController.swift */; };
@@ -62,10 +64,13 @@
 		69D5F0A52A48D92C00A50CC4 /* SelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D5F0A42A48D92C00A50CC4 /* SelectorView.swift */; };
 		69DB3FF22A75B2EB00DC312C /* AppliancesViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DB3FF12A75B2EB00DC312C /* AppliancesViewCellDelegate.swift */; };
 		69DB3FF52A76F08000DC312C /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DB3FF42A76F08000DC312C /* ResultsViewController.swift */; };
-		69DB3FF82A76F22F00DC312C /* ResultsParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DB3FF72A76F22F00DC312C /* ResultsParameters.swift */; };
+		69DB3FF82A76F22F00DC312C /* ResultsEntitys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DB3FF72A76F22F00DC312C /* ResultsEntitys.swift */; };
 		69DB3FFB2A76F56200DC312C /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DB3FFA2A76F56200DC312C /* ResultsView.swift */; };
 		69DB3FFD2A76F62600DC312C /* ResultsViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DB3FFC2A76F62600DC312C /* ResultsViewProtocol.swift */; };
 		69DB3FFF2A76F65900DC312C /* ResultsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DB3FFE2A76F65900DC312C /* ResultsViewDelegate.swift */; };
+		69DFFE282A9B7DEC00290CC8 /* PDFExporterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DFFE272A9B7DEC00290CC8 /* PDFExporterView.swift */; };
+		69DFFE2A2A9B7EBF00290CC8 /* PDFExporterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DFFE292A9B7EBF00290CC8 /* PDFExporterViewController.swift */; };
+		69DFFE2D2A9B954A00290CC8 /* PDFExporterEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DFFE2C2A9B954A00290CC8 /* PDFExporterEntity.swift */; };
 		69ED233B2A805E2A00692CCD /* ConnectionTypeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69ED233A2A805E2A00692CCD /* ConnectionTypeCardView.swift */; };
 		69ED233E2A8062BD00692CCD /* ConnectionTypeLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69ED233D2A8062BD00692CCD /* ConnectionTypeLabels.swift */; };
 		69ED23402A80640200692CCD /* ConnectionTypeLabelsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69ED233F2A80640200692CCD /* ConnectionTypeLabelsProtocol.swift */; };
@@ -103,6 +108,8 @@
 		697331972A771A3E008F3177 /* ResultsViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewModelDelegate.swift; sourceTree = "<group>"; };
 		6973319A2A788FCF008F3177 /* TagWithIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagWithIconView.swift; sourceTree = "<group>"; };
 		6973319C2A788FE2008F3177 /* TagWithIconViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagWithIconViewProtocol.swift; sourceTree = "<group>"; };
+		698E64E02A9B994A00F41F0A /* PDFExporterViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFExporterViewProtocol.swift; sourceTree = "<group>"; };
+		698E64E22A9B9A2800F41F0A /* AppliancesEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppliancesEntity.swift; sourceTree = "<group>"; };
 		69B39EC52A322BE90037724D /* LoadWise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoadWise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69B39EC82A322BE90037724D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69B39ECA2A322BE90037724D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,10 +136,13 @@
 		69D5F0A42A48D92C00A50CC4 /* SelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorView.swift; sourceTree = "<group>"; };
 		69DB3FF12A75B2EB00DC312C /* AppliancesViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppliancesViewCellDelegate.swift; sourceTree = "<group>"; };
 		69DB3FF42A76F08000DC312C /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
-		69DB3FF72A76F22F00DC312C /* ResultsParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsParameters.swift; sourceTree = "<group>"; };
+		69DB3FF72A76F22F00DC312C /* ResultsEntitys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsEntitys.swift; sourceTree = "<group>"; };
 		69DB3FFA2A76F56200DC312C /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
 		69DB3FFC2A76F62600DC312C /* ResultsViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewProtocol.swift; sourceTree = "<group>"; };
 		69DB3FFE2A76F65900DC312C /* ResultsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewDelegate.swift; sourceTree = "<group>"; };
+		69DFFE272A9B7DEC00290CC8 /* PDFExporterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFExporterView.swift; sourceTree = "<group>"; };
+		69DFFE292A9B7EBF00290CC8 /* PDFExporterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFExporterViewController.swift; sourceTree = "<group>"; };
+		69DFFE2C2A9B954A00290CC8 /* PDFExporterEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFExporterEntity.swift; sourceTree = "<group>"; };
 		69ED233A2A805E2A00692CCD /* ConnectionTypeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionTypeCardView.swift; sourceTree = "<group>"; };
 		69ED233D2A8062BD00692CCD /* ConnectionTypeLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionTypeLabels.swift; sourceTree = "<group>"; };
 		69ED233F2A80640200692CCD /* ConnectionTypeLabelsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionTypeLabelsProtocol.swift; sourceTree = "<group>"; };
@@ -341,6 +351,7 @@
 				69B39EDC2A3236BB0037724D /* Regionality */,
 				69589E522A49FC7A009E2267 /* Appliances */,
 				69DB3FF32A76F05B00DC312C /* Results */,
+				69DFFE262A9B7DCB00290CC8 /* PDFExporter */,
 				69B39EC82A322BE90037724D /* AppDelegate.swift */,
 				69B39ECA2A322BE90037724D /* SceneDelegate.swift */,
 				69B39ED12A322BEA0037724D /* Assets.xcassets */,
@@ -483,7 +494,7 @@
 		69DB3FF62A76F21900DC312C /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				69DB3FF72A76F22F00DC312C /* ResultsParameters.swift */,
+				69DB3FF72A76F22F00DC312C /* ResultsEntitys.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -494,6 +505,34 @@
 				69DB3FFA2A76F56200DC312C /* ResultsView.swift */,
 				69DB3FFC2A76F62600DC312C /* ResultsViewProtocol.swift */,
 				69DB3FFE2A76F65900DC312C /* ResultsViewDelegate.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		69DFFE262A9B7DCB00290CC8 /* PDFExporter */ = {
+			isa = PBXGroup;
+			children = (
+				69DFFE2E2A9B976600290CC8 /* View */,
+				69DFFE2B2A9B953100290CC8 /* Entity */,
+				69DFFE292A9B7EBF00290CC8 /* PDFExporterViewController.swift */,
+			);
+			path = PDFExporter;
+			sourceTree = "<group>";
+		};
+		69DFFE2B2A9B953100290CC8 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				69DFFE2C2A9B954A00290CC8 /* PDFExporterEntity.swift */,
+				698E64E22A9B9A2800F41F0A /* AppliancesEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		69DFFE2E2A9B976600290CC8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				69DFFE272A9B7DEC00290CC8 /* PDFExporterView.swift */,
+				698E64E02A9B994A00F41F0A /* PDFExporterViewProtocol.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -609,6 +648,8 @@
 				69589E5E2A4A03D9009E2267 /* RegionalityViewModelDelegate.swift in Sources */,
 				6973319B2A788FCF008F3177 /* TagWithIconView.swift in Sources */,
 				69CB464B2A8BA7BB006113F5 /* UIImageExtension.swift in Sources */,
+				698E64E32A9B9A2800F41F0A /* AppliancesEntity.swift in Sources */,
+				698E64E12A9B994A00F41F0A /* PDFExporterViewProtocol.swift in Sources */,
 				69589E572A49FCF4009E2267 /* AppliancesEParameters.swift in Sources */,
 				696AC0682A644A6A00BA8D91 /* AppliancesTableViewDataSourceProtocol.swift in Sources */,
 				69589E5B2A4A0196009E2267 /* RegionalityViewModelProtocol.swift in Sources */,
@@ -620,11 +661,14 @@
 				69589E8A2A5204F6009E2267 /* AppliancesViewDelegate.swift in Sources */,
 				69589E742A4B6B4F009E2267 /* TagViewProtocol.swift in Sources */,
 				69589E512A49DC2A009E2267 /* RegionalityType.swift in Sources */,
+				69DFFE2D2A9B954A00290CC8 /* PDFExporterEntity.swift in Sources */,
 				69DB3FFF2A76F65900DC312C /* ResultsViewDelegate.swift in Sources */,
 				69ED233E2A8062BD00692CCD /* ConnectionTypeLabels.swift in Sources */,
 				69B39EE32A325A410037724D /* OnboardingView.swift in Sources */,
+				69DFFE2A2A9B7EBF00290CC8 /* PDFExporterViewController.swift in Sources */,
 				69B39EEA2A3637B70037724D /* RegionalityView.swift in Sources */,
 				69D5F0A52A48D92C00A50CC4 /* SelectorView.swift in Sources */,
+				69DFFE282A9B7DEC00290CC8 /* PDFExporterView.swift in Sources */,
 				69B39F052A38E8250037724D /* FooterViewDelegate.swift in Sources */,
 				69B39EEC2A3637EA0037724D /* RegionalityViewProtocol.swift in Sources */,
 				69B39EFB2A367E760037724D /* Icon+DescriptionLabelProtocol.swift in Sources */,
@@ -633,7 +677,7 @@
 				69589E792A51BF70009E2267 /* AppliancesViewModelProtocol.swift in Sources */,
 				69589E862A51FEB0009E2267 /* AppliancesStore.swift in Sources */,
 				69589E812A51E1BB009E2267 /* AppliancesViewCell.swift in Sources */,
-				69DB3FF82A76F22F00DC312C /* ResultsParameters.swift in Sources */,
+				69DB3FF82A76F22F00DC312C /* ResultsEntitys.swift in Sources */,
 				69589E882A51FF38009E2267 /* AppliancesModel.swift in Sources */,
 				69B39EE82A326C980037724D /* OnboardingViewProtocol.swift in Sources */,
 				69DB3FFD2A76F62600DC312C /* ResultsViewProtocol.swift in Sources */,

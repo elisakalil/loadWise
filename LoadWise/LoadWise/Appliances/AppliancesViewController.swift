@@ -13,9 +13,19 @@ class AppliancesViewController: UIViewController {
     // MARK: Private Initializers
     private var viewModel: AppliancesViewModelProtocol
     private var parameters: AppliancesParameters
+    private var alertShowed = false
     
     // MARK: Public Initializers
     var contentView: AppliancesViewProtocol
+    let alertController = UIAlertController(title: "Atenção", message: .reachPowerLimit, preferredStyle: .alert)
+    let doneAction = UIAlertAction(title: "Ok", style: .default) { action in }
+    let moreAction = UIAlertAction(title: "Saiba mais", style: .default) { action in
+        if let deepLinkURL = URL(string: "https://www.celesc.com.br/ligacao-nova") {
+            if UIApplication.shared.canOpenURL(deepLinkURL) {
+                UIApplication.shared.open(deepLinkURL, options: [:], completionHandler: nil)
+            }
+        }
+    }
     
     init(viewModel: AppliancesViewModel,
          parameters: AppliancesParameters,
@@ -37,7 +47,7 @@ class AppliancesViewController: UIViewController {
     //MARK: LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
         contentSetup()
         updateControlCenter()
     }
@@ -50,6 +60,20 @@ class AppliancesViewController: UIViewController {
     private func updateControlCenter() {
         viewModel.updateControllCenter(regionality: parameters.regionalityType)
     }
+    
+    private func setupDeepLink() {
+        viewModel.updateControllCenter(regionality: parameters.regionalityType)
+    }
+    
+    private func showAlertIfNeeded() {
+        if viewModel.getTotalPower() > 65000  && !alertShowed {
+            alertController.addAction(doneAction)
+            alertController.addAction(moreAction)
+            present(alertController, animated: true, completion: nil)
+            
+            alertShowed = true
+        }
+    }
 }
 
 //MARK: AppliancesViewDelegate
@@ -58,9 +82,15 @@ extension AppliancesViewController: AppliancesViewDelegate {
         viewModel.calculateTotalPower(items: items)
     }
     
+    func updateItems(items: [AppliancesViewCellEntity]) {
+        viewModel.updateItems(items: items)
+        showAlertIfNeeded()
+    }
+    
     func buttonAction() {
         let results = viewModel.getResults()
         let viewModel = ResultsViewModel()
+        
         let nextVC = ResultsViewController(parameters: results, viewModel: viewModel)
         navigationController?.pushViewController(nextVC, animated: true)
     }

@@ -15,7 +15,7 @@ class ResultsView: UIView {
         label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 0
         label.textColor = .white
-        label.font = UIFont.boldSystemFont(ofSize: 38)
+        label.font = UIFont.boldSystemFont(ofSize: 36)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -31,7 +31,7 @@ class ResultsView: UIView {
     private let stackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
-        stack.spacing = Metrics.Spacing.medium
+        stack.spacing = Metrics.Spacing.large
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
@@ -74,7 +74,7 @@ class ResultsView: UIView {
     
     private let footer: FooterViewProtocol = {
         let footer = FooterView()
-        footer.button.addTarget(ResultsView.self, action: #selector(buttonAction), for: .touchUpInside)
+        footer.button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         footer.translatesAutoresizingMaskIntoConstraints = false
         return footer
     }()

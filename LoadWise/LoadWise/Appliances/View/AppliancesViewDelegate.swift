@@ -10,6 +10,7 @@ import Foundation
 protocol AppliancesViewDelegate: AnyObject {
     func buttonAction()
     func calculateTotalPower(items: [AppliancesViewCellEntity])
+    func updateItems(items: [AppliancesViewCellEntity])
     func updateControllCenter(date: String,
                               local: String,
                               totalPower: String,

@@ -15,6 +15,7 @@ class AppliancesViewModel {
     // MARK: Private Initializers
     private var totalPower: Int = 0
     private var currentRegionality = ""
+    private var selectedItems: [AppliancesEntity] = []
     
     private func getDate() -> String {
         let dateFormatter = DateFormatter()
@@ -31,17 +32,33 @@ class AppliancesViewModel {
     }
     
     private func getTypeOfConnection() -> String {
-        if totalPower <= 15000 {
-            return "Monofásica"
-        } else if totalPower <= 25000 {
-            return "Bifásica"
-        } else { 
+        if currentRegionality == .countySideTitle {
+            if totalPower <= 50000 {
+                return "Monofásica"
+            } else {
+                return "Trifásica"
+            }
+            
+        } else {
+            if totalPower <= 15000 {
+                return "Monofásica"
+            }
+            
+            if totalPower <= 25000 {
+                return "Bifásica"
+            }
+            
+            if totalPower <= 25000 {
+                return "Bifásica"
+            }
+            
             return "Trifásica"
         }
     }
 }
 // MARK: EquipmentsViewModelProtocol
 extension AppliancesViewModel: AppliancesViewModelProtocol {
+    
     func calculateTotalPower(items: [AppliancesViewCellEntity]) {
         totalPower = 0
         
@@ -54,6 +71,13 @@ extension AppliancesViewModel: AppliancesViewModelProtocol {
         updateControllCenter(regionality: currentRegionality)
     }
     
+    func updateItems(items: [AppliancesViewCellEntity]) {
+        selectedItems = items.filter { $0.quantity != 0 }.map { item in
+            return AppliancesEntity(appliance: item.title,
+                                     power: "\(item.power)",
+                                     quantity: "\(item.quantity)")
+        }
+    }
     
     func updateControllCenter(regionality: String?) {
         
@@ -66,7 +90,11 @@ extension AppliancesViewModel: AppliancesViewModelProtocol {
                                        regionality: currentRegionality)
     }
     
-    func getResults() -> ResultsParameters {
-        .init(regionality: currentRegionality, totalPower: "\(totalPower)", type: getTypeOfConnection())
+    func getResults() -> ResultsEntity {
+        .init(regionality: currentRegionality, totalPower: "\(totalPower)", type: getTypeOfConnection(), selectedItems: selectedItems)
+    }
+    
+    func getTotalPower() -> Int {
+        return totalPower
     }
 }

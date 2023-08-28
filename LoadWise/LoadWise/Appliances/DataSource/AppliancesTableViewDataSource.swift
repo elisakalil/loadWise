@@ -13,7 +13,7 @@ protocol AppliancesTableViewDataSourceDelegate: AnyObject {
 }
 
 final class AppliancesTableViewDataSource: NSObject, AppliancesTableViewDataSourceProtocol {
-    var items: [AppliancesViewCellEntity] = []
+    public var items: [AppliancesViewCellEntity] = []
     weak var dataSourceDelegate: AppliancesTableViewDataSourceDelegate?
     
     func tableView(_ tableView: UITableView,

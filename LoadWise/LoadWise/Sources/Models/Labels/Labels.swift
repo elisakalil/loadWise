@@ -37,4 +37,6 @@ Atenção: Para ligação trifásica com carga instalada acima de 65 até 75 kW,
     static let addEquipmentsDescription = "Para isso, volte e adicione equipamentos à sua lista."
     static let addEquipmentsTitle = "Você precisará de uma lista de equipamentos para o cálculo de fornecimento de energia."
     static let reachLimit = "Para mais informações acesse os links abaixo"
+    
+    static let reachPowerLimit = "Para carga acima de 65 kW, deverá ser justificada a necessidade por meio do cálculo da demanda e documento de responsabilidade técnica por profissional habilitado."
 }

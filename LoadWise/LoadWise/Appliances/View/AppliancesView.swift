@@ -160,6 +160,7 @@ extension AppliancesView: AppliancesTableViewDataSourceDelegate {
             let indexPath = IndexPath(row: index, section: 0)
             tableView.reloadRows(at: [indexPath], with: .none)
             delegate?.calculateTotalPower(items: items)
+            delegate?.updateItems(items: items)
         }
     }
     
@@ -172,6 +173,7 @@ extension AppliancesView: AppliancesTableViewDataSourceDelegate {
                 tableView.reloadRows(at: [indexPath], with: .none)
                 
                 delegate?.calculateTotalPower(items: items)
+                delegate?.updateItems(items: items)
             }
         }
     }

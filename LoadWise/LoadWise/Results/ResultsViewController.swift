@@ -11,7 +11,7 @@ import UIKit
 class ResultsViewController: UIViewController {
     
     // MARK: Private Initializers
-    private var parameters: ResultsParameters
+    private var parameters: ResultsEntity
     private let viewModel: ResultsViewModelProtocol
     
     // MARK: Public Initializers
@@ -20,7 +20,8 @@ class ResultsViewController: UIViewController {
         return view
     }()
     
-    init(parameters: ResultsParameters, viewModel: ResultsViewModelProtocol)
+    init(parameters: ResultsEntity,
+         viewModel: ResultsViewModelProtocol)
     {
         self.parameters = parameters
         self.viewModel = viewModel
@@ -47,7 +48,8 @@ class ResultsViewController: UIViewController {
     private func updateView() {
         guard let totalPower = Int(parameters.totalPower),
               totalPower > 0 else {
-            contentView.updateView(with: .addEquipmentsTitle, with: .addEquipmentsDescription, with: nil)
+            contentView.updateView(with: .addEquipmentsTitle,
+                                   with: .addEquipmentsDescription, with: nil)
             return
         }
         
@@ -60,6 +62,20 @@ class ResultsViewController: UIViewController {
 
 extension ResultsViewController: ResultsViewDelegate {
     func buttonAction() {
-        print("button tapped")
+        
+        let power = Int(parameters.totalPower) ?? 0
+        
+        let totalPower = parameters.totalPower
+        let regionality = parameters.regionality
+        let type = viewModel.getType(with: power)
+        let selectedItems = parameters.selectedItems
+        
+        
+        let nextVC = PDFExporterViewController(parameters: .init(regionality: regionality,
+                                                                 totalPower: totalPower,
+                                                                 type: type,
+                                                                 selectedItems: selectedItems))
+        
+        navigationController?.pushViewController(nextVC, animated: true)
     }
 }
